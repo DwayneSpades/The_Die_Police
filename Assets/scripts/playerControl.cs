@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Sprites;
 
 public class playerControl : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class playerControl : MonoBehaviour
     //public GameObject playerObject;
     public gambler playerStat;
     public police theFeds;
+    public GameObject cloak;
 
     public float dicePower = 0;
 
@@ -24,7 +26,8 @@ public class playerControl : MonoBehaviour
     void Start()
     {
 
-       
+        cloak.active = false;
+
         throwingDice = false;
         hideGame = false;
     }
@@ -38,6 +41,7 @@ public class playerControl : MonoBehaviour
             throwingDice = false;
             dicePower = 0;
             hideGame = true;
+            cloak.active = true;
             //theFeds.nothingSus();
 
             Debug.Log("Hiding Game!!!!");
@@ -46,6 +50,7 @@ public class playerControl : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Z))
         {
             hideGame = false;
+            cloak.active = false;
             Debug.Log("Game ON!!!!");
         }
 
@@ -72,14 +77,18 @@ public class playerControl : MonoBehaviour
                 
                 Debug.Log("DICE THROWN! Power: " + dicePower);
                 Debug.Log("DICE NUMBER: " + Random.Range(2,13));
+
                 addSus(dicePower);
                 dicePower = 0;
+                swiping = false;
+                diceDown = true;
             }
 
             //swipe dice after they are thrown
-            if (Input.GetKeyUp(KeyCode.C) && throwingDice)
+            if (Input.GetKeyDown(KeyCode.C) && diceDown)
             {
                 swiping = true;
+                diceDown = false;
             }
         }
         
@@ -96,8 +105,7 @@ public class playerControl : MonoBehaviour
     {
         dicePower = 0;
         throwingDice = false;
-        diceDown = true;
-        swiping = true;
+        swiping = false;
     }
 
     void resetGame()

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class police : MonoBehaviour
 {
+
+    public Sprite checkingDoor;
+    public Sprite Alerted;
+
     public playerControl player;
     public float sus = 0;
     public float maxSus = 0;
@@ -19,6 +23,7 @@ public class police : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.active = false;
         checkTimer = 0;
     }
 
@@ -30,12 +35,14 @@ public class police : MonoBehaviour
         {
             checkTimer = 0;
             checking = false;
+            GetComponent<SpriteRenderer>().sprite = Alerted;
             Debug.Log("YOU LOSE!!!!");
         }
         else if (checkTimer <= 0 && checking && player.hideGame)
         {
             checkTimer = 0;
             checking = false;
+            gameObject.active = false;
             Debug.Log("SAFE");
         }
         else if(checking)
@@ -55,8 +62,10 @@ public class police : MonoBehaviour
         float verdict = Random.Range(sus,maxSus);
         if (verdict >susThreshold)
         {
+            gameObject.active = true;
             checking = true;
             checkTimer = checkTime;
+            GetComponent<SpriteRenderer>().sprite = checkingDoor;
             Debug.Log("SECURITY CHECK!!!");
         }
 
