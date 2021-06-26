@@ -1,13 +1,28 @@
 fileFormatVersion: 2
-guid: b5c787888b3d863468e090b42fa1ede8
+guid: 2c8c4416383021842be2d7c38fd27108
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: 7671156483908788749
+    second: playerhands_0
   - first:
-      213: 6623719234781301212
-    second: door_1
+      213: 7349783744656730079
+    second: playerhands_1
+  - first:
+      213: 6079130268111758302
+    second: playerhands_2
+  - first:
+      213: 3206304961205493364
+    second: playerhands_3
+  - first:
+      213: 7580163094010186952
+    second: playerhands_4
+  - first:
+      213: 5858343288753289285
+    second: playerhands_5
+  - first:
+      213: -7934794156397611217
+    second: playerhands_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: playerhands_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 10
-        width: 47
-        height: 62
+        x: 82
+        y: 53
+        width: 43
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: d0261d7bd2c657a60800000000000000
+      internalID: 7671156483908788749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_1
+      name: playerhands_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 1
-        width: 75
-        height: 73
+        x: 270
+        y: 52
+        width: 32
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +167,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd9cf01dc8d2ceb50800000000000000
-      internalID: 6623719234781301212
+      spriteID: fd7643cff5daff560800000000000000
+      internalID: 7349783744656730079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerhands_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 53
+        width: 37
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3602e25c86d5450800000000000000
+      internalID: 6079130268111758302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerhands_3
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 53
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ed93edf551f7c20800000000000000
+      internalID: 3206304961205493364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerhands_4
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 52
+        width: 38
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccc00e2c26223960800000000000000
+      internalID: 7580163094010186952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerhands_5
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 39
+        width: 116
+        height: 87
+      alignment: 9
+      pivot: {x: 0.7504141, y: 0.29132143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548fe6aae240d4150800000000000000
+      internalID: 5858343288753289285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerhands_6
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 33
+        width: 66
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27331e41c2f1e190800000000000000
+      internalID: -7934794156397611217
       vertices: []
       indices: 
       edges: []

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class playerControl : MonoBehaviour
 {
+    public Sprite hand_throwDice;
+    public Sprite hand_holdDice;
 
     //public GameObject playerObject;
     public gambler opponent;
@@ -14,6 +16,7 @@ public class playerControl : MonoBehaviour
     public GameObject cloak;
 
     public float dicePower = 0;
+    public int diceTotal;
 
     bool throwingDice = false;
     bool diceDown = false;
@@ -26,10 +29,13 @@ public class playerControl : MonoBehaviour
 
     public int money_pot = 100;
 
+    public float throw_animTimer;
+    public float throw_animTime = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<SpriteRenderer>().sprite = hand_holdDice;
         opponent = GameObject.FindGameObjectWithTag("opponent").GetComponent<gambler>();
 
         cloak.active = false;
@@ -41,12 +47,21 @@ public class playerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        throw_animTimer -= 1 * Time.deltaTime;
+        if (throw_animTimer <= 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = hand_holdDice;
+            throw_animTimer = 0;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
             //reset the match
             throwingDice = false;
             dicePower = 0;
+            opponent.anger += 1;
+
             hideGame = true;
             diceDown = false;
             cloak.active = true;
@@ -60,7 +75,7 @@ public class playerControl : MonoBehaviour
         {
             hideGame = false;
             cloak.active = false;
-            Debug.Log("Game ON!!!!");
+            Debug.Log("Game resumes!!!!");
         }
 
         // throw the dice and get a number
@@ -115,11 +130,16 @@ public class playerControl : MonoBehaviour
                 //throw dice
                 if (Input.GetKeyUp(KeyCode.X) && throwingDice)
                 {
+                    GetComponent<SpriteRenderer>().sprite = hand_throwDice;
+                    throw_animTimer = throw_animTime;
 
                     throwingDice = false;
 
                     Debug.Log("DICE THROWN! Power: " + dicePower);
-                    Debug.Log("DICE NUMBER: " + Random.Range(2, 13));
+
+                    diceTotal = Random.Range(2, 13);
+
+                    Debug.Log("DICE NUMBER: " + diceTotal);
 
                     addSus(dicePower);
                     dicePower = 0;
