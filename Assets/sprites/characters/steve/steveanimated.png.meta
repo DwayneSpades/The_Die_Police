@@ -44,6 +44,18 @@ TextureImporter:
   - first:
       213: 6090208294167989929
     second: steveanimated_13
+  - first:
+      213: -8207474777386863219
+    second: steveanimated_0
+  - first:
+      213: -9008683485729249161
+    second: steveanimated_1
+  - first:
+      213: -8523155335045201839
+    second: steveanimated_2
+  - first:
+      213: -6171782643117726177
+    second: steveanimated_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,95 +153,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: steveanimated_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 144
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30f89e22e85066150800000000000000
-      internalID: 5865381672725876483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steveanimated_1
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 144
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02aa13e9044b7f2c0800000000000000
-      internalID: -4397848321479038432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steveanimated_2
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 144
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ea5ae627c78545e0800000000000000
-      internalID: -1925983976209884441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: steveanimated_3
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 144
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a4bde2f2a9a43d60800000000000000
-      internalID: 7869100966248559778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: steveanimated_4
       rect:
         serializedVersion: 2
-        x: 576
-        y: 0
+        x: 0
+        y: 288
         width: 144
         height: 144
       alignment: 0
@@ -249,8 +177,8 @@ TextureImporter:
       name: steveanimated_5
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
+        x: 144
+        y: 288
         width: 144
         height: 144
       alignment: 0
@@ -270,8 +198,8 @@ TextureImporter:
       name: steveanimated_6
       rect:
         serializedVersion: 2
-        x: 864
-        y: 0
+        x: 288
+        y: 288
         width: 144
         height: 144
       alignment: 0
@@ -291,8 +219,8 @@ TextureImporter:
       name: steveanimated_7
       rect:
         serializedVersion: 2
-        x: 1008
-        y: 0
+        x: 432
+        y: 288
         width: 144
         height: 144
       alignment: 0
@@ -312,8 +240,8 @@ TextureImporter:
       name: steveanimated_8
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
+        x: 0
+        y: 144
         width: 144
         height: 144
       alignment: 0
@@ -333,8 +261,8 @@ TextureImporter:
       name: steveanimated_9
       rect:
         serializedVersion: 2
-        x: 1296
-        y: 0
+        x: 144
+        y: 144
         width: 144
         height: 144
       alignment: 0
@@ -354,8 +282,8 @@ TextureImporter:
       name: steveanimated_10
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 0
+        x: 288
+        y: 144
         width: 144
         height: 144
       alignment: 0
@@ -375,8 +303,8 @@ TextureImporter:
       name: steveanimated_11
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 0
+        x: 432
+        y: 144
         width: 144
         height: 144
       alignment: 0
@@ -396,7 +324,7 @@ TextureImporter:
       name: steveanimated_12
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 0
         y: 0
         width: 144
         height: 144
@@ -417,7 +345,7 @@ TextureImporter:
       name: steveanimated_13
       rect:
         serializedVersion: 2
-        x: 1872
+        x: 144
         y: 0
         width: 144
         height: 144
@@ -430,6 +358,90 @@ TextureImporter:
       bones: []
       spriteID: 9ae450e1d24c48450800000000000000
       internalID: 6090208294167989929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steveanimated_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85b0eecc21391e80800000000000000
+      internalID: -8207474777386863219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steveanimated_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 432
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7782e2b891abaf280800000000000000
+      internalID: -9008683485729249161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steveanimated_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 432
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150c721616ba7b980800000000000000
+      internalID: -8523155335045201839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steveanimated_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 432
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16eb06b26c695aa0800000000000000
+      internalID: -6171782643117726177
       vertices: []
       indices: 
       edges: []

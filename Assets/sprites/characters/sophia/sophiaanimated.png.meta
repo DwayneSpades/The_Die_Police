@@ -44,6 +44,18 @@ TextureImporter:
   - first:
       213: 5285066818911680965
     second: sophiaanimated_13
+  - first:
+      213: -6646189387122852650
+    second: sophiaanimated_0
+  - first:
+      213: -4498092615646926388
+    second: sophiaanimated_1
+  - first:
+      213: -8011335342914996961
+    second: sophiaanimated_2
+  - first:
+      213: -274274951011856741
+    second: sophiaanimated_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,95 +153,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sophiaanimated_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 144
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc4d2554664471350800000000000000
-      internalID: 5987329435652773069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sophiaanimated_1
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 144
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06d407222b299f7a0800000000000000
-      internalID: -6342877306395013792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sophiaanimated_2
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 144
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f015c1e9897b60580800000000000000
-      internalID: -8861193350689304305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sophiaanimated_3
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 144
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9fc460a2262de2d0800000000000000
-      internalID: -3247897826102554721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: sophiaanimated_4
       rect:
         serializedVersion: 2
-        x: 576
-        y: 0
+        x: 0
+        y: 320
         width: 144
         height: 160
       alignment: 0
@@ -249,8 +177,8 @@ TextureImporter:
       name: sophiaanimated_5
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
+        x: 144
+        y: 320
         width: 144
         height: 160
       alignment: 0
@@ -270,8 +198,8 @@ TextureImporter:
       name: sophiaanimated_6
       rect:
         serializedVersion: 2
-        x: 864
-        y: 0
+        x: 288
+        y: 320
         width: 144
         height: 160
       alignment: 0
@@ -291,8 +219,8 @@ TextureImporter:
       name: sophiaanimated_7
       rect:
         serializedVersion: 2
-        x: 1008
-        y: 0
+        x: 432
+        y: 320
         width: 144
         height: 160
       alignment: 0
@@ -312,8 +240,8 @@ TextureImporter:
       name: sophiaanimated_8
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
+        x: 0
+        y: 160
         width: 144
         height: 160
       alignment: 0
@@ -333,8 +261,8 @@ TextureImporter:
       name: sophiaanimated_9
       rect:
         serializedVersion: 2
-        x: 1296
-        y: 0
+        x: 144
+        y: 160
         width: 144
         height: 160
       alignment: 0
@@ -354,8 +282,8 @@ TextureImporter:
       name: sophiaanimated_10
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 0
+        x: 288
+        y: 160
         width: 144
         height: 160
       alignment: 0
@@ -375,8 +303,8 @@ TextureImporter:
       name: sophiaanimated_11
       rect:
         serializedVersion: 2
-        x: 1584
-        y: 0
+        x: 432
+        y: 160
         width: 144
         height: 160
       alignment: 0
@@ -396,7 +324,7 @@ TextureImporter:
       name: sophiaanimated_12
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 0
         y: 0
         width: 144
         height: 160
@@ -417,7 +345,7 @@ TextureImporter:
       name: sophiaanimated_13
       rect:
         serializedVersion: 2
-        x: 1872
+        x: 144
         y: 0
         width: 144
         height: 160
@@ -430,6 +358,90 @@ TextureImporter:
       bones: []
       spriteID: 5c93f633544585940800000000000000
       internalID: 5285066818911680965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sophiaanimated_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 144
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc329627fdf3c3a0800000000000000
+      internalID: -6646189387122852650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sophiaanimated_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 480
+        width: 144
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9ae8519909391c0800000000000000
+      internalID: -4498092615646926388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sophiaanimated_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 480
+        width: 144
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15f40593f402d090800000000000000
+      internalID: -8011335342914996961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sophiaanimated_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 480
+        width: 144
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e862e9264913cf0800000000000000
+      internalID: -274274951011856741
       vertices: []
       indices: 
       edges: []
