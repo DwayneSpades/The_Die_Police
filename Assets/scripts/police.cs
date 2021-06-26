@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class police : MonoBehaviour
 {
@@ -37,12 +38,15 @@ public class police : MonoBehaviour
             checking = false;
             GetComponent<SpriteRenderer>().sprite = Alerted;
             Debug.Log("YOU LOSE!!!!");
+            SceneManager.LoadScene("loseScreen");
         }
         else if (checkTimer <= 0 && checking && player.hideGame)
         {
+            //sus check passed. reset sus stat
             checkTimer = 0;
             checking = false;
             gameObject.active = false;
+            sus = 0;
             Debug.Log("SAFE");
         }
         else if(checking)
