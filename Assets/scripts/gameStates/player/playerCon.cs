@@ -17,6 +17,8 @@ public class playerCon : MonoBehaviour
     //dice stuff
     [SerializeField]
     dice die;
+    [SerializeField]
+    police policePatrol;
 
     //current opponent
     public gamblerInterface currentOpponent;
@@ -63,7 +65,14 @@ public class playerCon : MonoBehaviour
             cup.active = true;
             hidingGame = true;
             hand_anim.Play("idle");
-            currentOpponent.angered();
+
+            if (policePatrol.checking)
+            {
+                //angers opponenet when police aren't around
+                currentOpponent.angered();
+                currentOpponent.addAnger();
+            }
+
             clearTable();
         }
         //reset game at anytime
