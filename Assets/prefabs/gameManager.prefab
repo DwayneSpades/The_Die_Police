@@ -46,7 +46,7 @@ MonoBehaviour:
   currentLevel: 0
   diceTotal: 0
   diceRoll: []
-  startMenu: mainScreen
+  startMenu: winScreen
   loseScreen: loseScreen
   winScreen: 
   levelScenes:
