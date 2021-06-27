@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cf7394288954644b442fad60cd6766, type: 3}
-  m_Name: Larry_Taunt
+  m_Name: Steve_Rage_GameOver
   m_EditorClassIdentifier: 
   dialogue:
-  - Woah, easy there fella! Don't get too excited, now.
+  - Alright, that's it. I have no intention of waiting all night for this game.
+  - Let's cut to the chase.
+  - Say goodnight, chump.
