@@ -119,6 +119,7 @@ public class playerCon : MonoBehaviour
             currentState = swipeState;
             roundTimer = roundTime;
             enemyGotDice = false;
+            wasBelow = false;
 
             Vector2 tmp_v = new Vector2(3, 0);
             Instantiate(die, tmp_v, Quaternion.identity);
@@ -126,6 +127,7 @@ public class playerCon : MonoBehaviour
     }
     bool playerGotDice = false;
     bool enemyGotDice = false;
+    bool wasBelow = false;
 
     float roundTimer = 0;
     float roundTime = 8;
@@ -133,12 +135,27 @@ public class playerCon : MonoBehaviour
     public void swipeDice()
     {
         //play swip ainmation
-        
+        int diceTotal = gameManager.Instance.giveRollTotal();
         
         if (Input.GetKeyDown(KeyCode.C))
         {
             hand_anim.Play("swipe_dice");
             playerGotDice = true;
+
+            if (diceTotal > 6)
+            {
+                Debug.Log("won Round!");
+                //player.addMoney(money_pot);
+                //opponent.loseMoney(money_pot);
+            }
+            else
+            {
+                wasBelow = true;
+                Debug.Log("lost Round!");
+                //player.loseMoney(money_pot);
+                //opponent.addMoney(money_pot);
+            }
+
             clearTable();
         }
 
@@ -150,14 +167,38 @@ public class playerCon : MonoBehaviour
 
             if (tmp && !playerGotDice)
             {
-                currentOpponent.swipeDice();
+                if (diceTotal > 6)
+                {
+                    currentOpponent.swipeDice();
+                    //player.addMoney(money_pot);
+                    //opponent.loseMoney(money_pot);
+                }
+                else
+                {
+                    currentOpponent.missedSwipe();
+                    //player.loseMoney(money_pot);
+                    //opponent.addMoney(money_pot);
+                }
+                
+
                 clearTable();
                 enemyGotDice = true;
 
             }
             else if (tmp && playerGotDice)
             {
-                currentOpponent.missedSwipe();
+                if (wasBelow)
+                {
+                    currentOpponent.swipeDice();
+                    //player.addMoney(money_pot);
+                    //opponent.loseMoney(money_pot);
+                }
+                else
+                {
+                    currentOpponent.missedSwipe();
+                    //player.loseMoney(money_pot);
+                    //opponent.addMoney(money_pot);
+                }
                 enemyGotDice = true;
             }
             

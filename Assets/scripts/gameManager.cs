@@ -38,13 +38,13 @@ public class gameManager : MonoBehaviour
     
     public void collectDice(dice die)
     {
-        Instance.diceTotal += die.dice_number;
-        Debug.Log("total dice points: " + Instance.diceTotal);
+        diceTotal += die.dice_number;
+        Debug.Log("total dice points: " + diceTotal);
         diceRoll.Add(die);
     }
     public void resetDiceRoll()
     {
-        Debug.Log("Rest TRIGGERED");
+
         for(int i=0; i < diceRoll.Count; i++)
         {
             diceRoll[i].destroyDice(); ;
