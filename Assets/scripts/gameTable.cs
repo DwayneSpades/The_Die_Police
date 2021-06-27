@@ -103,13 +103,6 @@ public class gameTable : MonoBehaviour
 
 
 
-    public void rollDice()
-    {
-        int tmp_1 = currentOpponent.rollDice();
-
-
-    }
-
     public void triggerReset()
     {
         resetMatch = true;

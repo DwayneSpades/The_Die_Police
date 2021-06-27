@@ -47,6 +47,7 @@ public class police : MonoBehaviour
             checking = false;
             gameObject.active = false;
             sus = 0;
+            player.resetAnger();
             Debug.Log("SAFE");
         }
         else if(checking)
@@ -55,6 +56,7 @@ public class police : MonoBehaviour
         }
     }
 
+    
     public void nothingSus()
     {
 

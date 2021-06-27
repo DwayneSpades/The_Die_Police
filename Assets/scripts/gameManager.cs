@@ -6,42 +6,54 @@ public class gameManager : MonoBehaviour
 {
 
 
-    private gameManager() { }
 
-    private static gameManager _instance;
 
-    public static gameManager GetInstance()
+    public static gameManager Instance { get; private set; }
+
+    private void Awake()
     {
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = new gameManager();
+
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        return _instance;
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
+    public int currentLevel = 1;
 
-    int currentLevel = 1;
+    public int diceTotal;
 
-
-    int playerMoney = 0;
-    int opponentMoney = 0;
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        Instance.diceRoll = new List<dice>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<dice> diceRoll;
+
+    public void collectDice(dice die)
     {
-        
+        Instance.diceTotal += die.dice_number;
+        //Debug.Log("ADDING NUM:" + diceTotal);
+        diceRoll.Add(die);
     }
-
-
-    void setMoneyAmount(int player_m,int enemy_m)
+    public void resetDiceRoll()
     {
-        playerMoney = player_m;
-        opponentMoney = enemy_m; 
+        for(int i=0; i < diceRoll.Count; i++)
+        {
+            diceRoll[i].destroyDice(); ;
+        }
+        diceTotal = 0;
+        diceRoll.Clear();
     }
+    public int giveRollTotal()
+    {
+        Debug.Log("total dice points: " + Instance.diceTotal);
+        return Instance.diceTotal;
+    }
+   
 }

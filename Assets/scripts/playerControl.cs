@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class playerControl : MonoBehaviour
 {
+
+    public gameManager manager;
     public Sprite hand_throwDice;
     public Sprite hand_holdDice;
 
     //public GameObject playerObject;
     public gambler opponent;
     public gambler player;
+
+    public dice die;
 
     public police theFeds;
     public GameObject cloak;
@@ -37,6 +41,7 @@ public class playerControl : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().sprite = hand_holdDice;
         opponent = GameObject.FindGameObjectWithTag("opponent").GetComponent<gambler>();
+        opponent.rollDice();
 
         cloak.active = false;
 
@@ -60,12 +65,13 @@ public class playerControl : MonoBehaviour
             //reset the match
             throwingDice = false;
             dicePower = 0;
-            opponent.anger += 1;
-
+            if (theFeds.checking)
+                opponent.anger += 1;
+            swiping = false;
             hideGame = true;
             diceDown = false;
             cloak.active = true;
-
+            gameManager.Instance.resetDiceRoll();
             //theFeds.nothingSus();
 
             Debug.Log("Hiding Game!!!!");
@@ -75,6 +81,7 @@ public class playerControl : MonoBehaviour
         {
             hideGame = false;
             cloak.active = false;
+            opponent.rollDice();
             Debug.Log("Game resumes!!!!");
         }
 
@@ -83,7 +90,7 @@ public class playerControl : MonoBehaviour
         {
 
             //swiping phase
-            if (diceDown)
+            if (gameManager.Instance.diceRoll.Count==2)
             {
                 //swipe dice after they are thrown
                 if (Input.GetKeyDown(KeyCode.C))
@@ -91,26 +98,49 @@ public class playerControl : MonoBehaviour
                     //play hand swipe animation
                     swiping = true;
                     diceDown = false;
-
-                    player.addMoney(money_pot);
-                    opponent.loseMoney(money_pot);
+                    
+                    if (diceTotal > 6)
+                    {
+                        player.addMoney(money_pot);
+                        opponent.loseMoney(money_pot);
+                    }
+                    else
+                    {
+                        player.loseMoney(money_pot);
+                        opponent.addMoney(money_pot);
+                    }
                 }
 
                 //start enemy swipe countdown
                 enemySwipeTimer -= 1 * Time.deltaTime;
 
                 //match time ends here
-                if (enemySwipeTimer <= 0)
+                if (enemySwipeTimer <= 0 && !swiping)
                 {
+                    opponent.swipeDice();
 
-                    player.loseMoney(money_pot);
-                    opponent.addMoney(money_pot);
-          
+                    if (diceTotal < 6)
+                    {
+                        player.addMoney(money_pot);
+                        opponent.loseMoney(money_pot);
+                    }
+                    else
+                    {
+                        player.loseMoney(money_pot);
+                        opponent.addMoney(money_pot);
+                    }
+
                     //reset match
                     enemySwipeTimer = 0;
                     diceDown = false;
                 }
+                if (!diceDown)
+                {
+                    gameManager.Instance.resetDiceRoll();
 
+                }
+                
+                swiping = false;
             }
             else
             {
@@ -137,24 +167,28 @@ public class playerControl : MonoBehaviour
 
                     Debug.Log("DICE THROWN! Power: " + dicePower);
 
-                    diceTotal = Random.Range(2, 13);
-
-                    Debug.Log("DICE NUMBER: " + diceTotal);
+                    //get dice total form the dice objects
+                    //diceTotal = Random.Range(2, 13);
+                    // 
+                    Vector2 tmp_v = new Vector2(3, 0);
+                    Instantiate(die,tmp_v, Quaternion.identity);
+                    Debug.Log("DICE NUMBER_1: " + diceTotal);
+                    diceTotal = manager.giveRollTotal();
+                    Debug.Log("DICE NUMBER_2: " + diceTotal);
+                    
 
                     addSus(dicePower);
                     dicePower = 0;
                     swiping = false;
                     diceDown = true;
 
-
+                    
                     //begin swipe phase
                     enemySwipeTimer= opponent.reactionTime;
                 }
             }
            
-            
-            
-            
+  
         }
 
         if (opponent.money_score <= 0)
@@ -165,6 +199,12 @@ public class playerControl : MonoBehaviour
         {
             SceneManager.LoadScene("loseScreen");
         }
+        else if (opponent.anger >= 10)
+        {
+            Debug.Log("oppenent is angry");
+            SceneManager.LoadScene("loseScreen");
+        }
+
     }
 
 
@@ -179,6 +219,10 @@ public class playerControl : MonoBehaviour
         theFeds.checkBar();
     }
 
+    public void resetAnger()
+    {
+        opponent.anger = 0;
+    }
     void resetMatch()
     {
         dicePower = 0;
