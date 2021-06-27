@@ -21,8 +21,6 @@ public class playerCon : MonoBehaviour
     [SerializeField]
     police policePatrol;
 
-    //current opponent
-    public gamblerInterface currentOpponent;
     //the player's stats
     public gamblerInterface player;
 
@@ -75,8 +73,8 @@ public class playerCon : MonoBehaviour
             if (!policePatrol.checking)
             {
                 //angers opponenet when police aren't around
-                currentOpponent.angered();
-                currentOpponent.addAnger();
+                gameManager.GetCurrentOpponent().angered();
+                gameManager.GetCurrentOpponent().addAnger();
             }
 
             clearTable();
@@ -107,7 +105,7 @@ public class playerCon : MonoBehaviour
     {
         //roll enemy dice
         //instantiate dice
-        bool tmp = currentOpponent.chargeRoll();
+        bool tmp = gameManager.GetCurrentOpponent().chargeRoll();
         //Vector2 tmp_v = new Vector2(3, 0);
         //Instantiate(die, tmp_v, Quaternion.identity);
         if(tmp)
@@ -164,8 +162,8 @@ public class playerCon : MonoBehaviour
             {
                 Debug.Log("won Round!");
 
-                player.addMoney(currentOpponent.BettingAmount);
-                currentOpponent.loseMoney(currentOpponent.BettingAmount);
+                player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
 
                 Debug.Log("PLAYER mONEY:" + player.money_score);
             }
@@ -174,8 +172,8 @@ public class playerCon : MonoBehaviour
                 wasBelow = true;
                 Debug.Log("lost Round!");
 
-                player.loseMoney(currentOpponent.BettingAmount);
-                currentOpponent.addMoney(currentOpponent.BettingAmount);
+                player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
             }
 
             clearTable();
@@ -185,24 +183,24 @@ public class playerCon : MonoBehaviour
         if (!enemyGotDice)
         {
             //run enemy swipe timer
-            bool tmp = currentOpponent.runSwipeTimer();
+            bool tmp = gameManager.GetCurrentOpponent().runSwipeTimer();
 
             if (tmp && !playerGotDice)
             {
                 if (diceTotal > 6)
                 {
-                    currentOpponent.swipeDice();
+                    gameManager.GetCurrentOpponent().swipeDice();
                     
-                    player.loseMoney(currentOpponent.BettingAmount);
-                    currentOpponent.addMoney(currentOpponent.BettingAmount);
+                    player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
                     
                 }
                 else
                 {
-                    currentOpponent.missedSwipe();
+                    gameManager.GetCurrentOpponent().missedSwipe();
 
-                    player.addMoney(currentOpponent.BettingAmount);
-                    currentOpponent.loseMoney(currentOpponent.BettingAmount);
+                    player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
                 }
                 
 
@@ -215,11 +213,11 @@ public class playerCon : MonoBehaviour
                 //if the oppnenet is too late to swipe
                 if (wasBelow)
                 {
-                    currentOpponent.swipeDice();
+                    gameManager.GetCurrentOpponent().swipeDice();
                 }
                 else
                 {
-                    currentOpponent.missedSwipe();
+                    gameManager.GetCurrentOpponent().missedSwipe();
                 }
                 enemyGotDice = true;
             }
@@ -241,7 +239,7 @@ public class playerCon : MonoBehaviour
     public void resetAnger()
     {
         //reset current opponents anger
-        currentOpponent.resetAnger();
+        gameManager.GetCurrentOpponent().resetAnger();
     }
 
     public void clearTable()
@@ -267,9 +265,9 @@ public class playerCon : MonoBehaviour
         {
             SceneManager.LoadScene(gameManager.Instance.loseScreen);
         }
-        else if (currentOpponent.money_score <= 0)
+        else if (gameManager.GetCurrentOpponent().money_score <= 0)
         {
-            gameManager.Instance.getNextLevel();
+            gameManager.Instance.progressLevel();
         }
 
 

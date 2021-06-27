@@ -99,7 +99,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -113,16 +113,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9471495f57af3e648ba6b9b8978c08d3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   police_anim: {fileID: 8486361209545134884}
   door_anim: {fileID: 0}
   player: {fileID: 0}
-  sus: -20
-  maxSus: 100
-  susThreshold: 50
   checking: 0
   patrolling: 0
-  dormantTime: 5
-  checkTime: 3
-  gameOverResetTime: 0
+  policeProfile:
+    sus: -20
+    maxSus: 100
+    susThreshold: 50
+    dormantTime: 3
+    checkTime: 3
+  gameResetTime: 0

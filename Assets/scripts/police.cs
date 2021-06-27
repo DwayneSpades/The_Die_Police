@@ -21,20 +21,16 @@ public class police : MonoBehaviour
     Animator door_anim;
 
     public playerCon player;
-    public float sus = 0;
-    public float maxSus = 0;
-    public float susThreshold = 50;
-
     [HideInInspector]
     public bool checking = false;
     [HideInInspector]
     public bool patrolling = false;
 
+    public PoliceProfile policeProfile;
+
     float dormantTimer;
-    public float dormantTime;
 
     float checkTimer;
-    public float checkTime;
 
     float gameOverResetTimer;
     public float gameResetTime;
@@ -68,7 +64,7 @@ public class police : MonoBehaviour
             checkBar();
             
             Debug.Log("RANDOM CHECK");
-            dormantTimer = dormantTime;
+            dormantTimer = policeProfile.dormantTime;
         }
 
     }
@@ -94,7 +90,7 @@ public class police : MonoBehaviour
             checkTimer = 0;
             checking = false;
             //gameObject.active = false;
-            sus = 0;
+            policeProfile.sus = 0;
             player.resetAnger();
             Debug.Log("SAFE");
             currnetState.changeState(this,dormantState);
@@ -122,19 +118,16 @@ public class police : MonoBehaviour
 
     public void checkBar()
     {
-        float verdict = Random.Range(sus,maxSus);
-        if (verdict >susThreshold)
+        float verdict = Random.Range(policeProfile.sus, policeProfile.maxSus);
+        if (verdict > policeProfile.susThreshold)
         {
             checking = true;
-            checkTimer = checkTime;
+            checkTimer = policeProfile.checkTime;
             currnetState.changeState(this,checkingState);
 
             door_anim.Play("door_open");
             police_anim.Play("police_checking");
             Debug.Log("SECURITY CHECK!!!");
         }
-   
-
-
     }
 }
