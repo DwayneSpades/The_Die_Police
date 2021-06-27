@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cf7394288954644b442fad60cd6766, type: 3}
+  m_Name: Larry_Intro
+  m_EditorClassIdentifier: 
+  dialogue:
+  - LAZY LARRY - UNDERWORLD UNDERLING
+  - 'Well look who it is. '
+  - Here I was thinking we'd seen the last of you.
+  - You did cost us a lot of money, after all... Dante hasn't forgotten, that's for
+    sure.
+  - Well, since you're here... how about a game of scoops?
+  - You still remember how to play, don't you?
+  - First, we bet some cash.
+  - Then, we each role a die.
+  - If the total of our roles is greater then 6, first person to scoop wins the cash
+    the other person bet.
+  - If the total of our roles is 6 or less, then don't scoop. Otherwise, you lose
+    the cash you bet.
+  - Here, let's try a couple practice rounds.
