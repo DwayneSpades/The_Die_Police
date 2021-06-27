@@ -118,7 +118,10 @@ MonoBehaviour:
   anger: 0
   die: {fileID: 2346134619527588961, guid: 9f18d0944302c204d921def385dc0dbb, type: 3}
   angerAcceleration: 2
+  angerLimit: 10
   reactionTimeHigh: 3
-  reactionTimeLow: 1
+  reactionTimeLow: 2
   chargeTime: 0.5
   gambler_anim: {fileID: 1793905091117307184}
+  money_score: 200
+  BettingAmount: 50

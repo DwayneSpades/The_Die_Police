@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerCon : MonoBehaviour
 {
@@ -258,6 +259,18 @@ public class playerCon : MonoBehaviour
         // 
         // 
         //clearTable();
+
+
+        if (player.money_score <= 0)
+        {
+            SceneManager.LoadScene(gameManager.Instance.loseScreen);
+        }
+        else if (currentOpponent.money_score <= 0)
+        {
+            gameManager.Instance.getNextLevel();
+        }
+
+
         playerGotDice = false;
         //restart match
         currentState = enemyRoleState;

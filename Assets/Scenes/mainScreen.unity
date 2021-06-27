@@ -775,6 +775,11 @@ PrefabInstance:
       propertyPath: money_score
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 771233044768900274, guid: 18d0fdb7d8e51c24f92c6948f2b154d8,
+        type: 3}
+      propertyPath: BettingAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 771233044768900276, guid: 18d0fdb7d8e51c24f92c6948f2b154d8,
         type: 3}
       propertyPath: m_RootOrder

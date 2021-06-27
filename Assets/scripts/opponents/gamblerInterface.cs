@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class gamblerInterface : MonoBehaviour
 {
-    //I wanted this to be protected and serializable but that doenst work???
-    public string loseScreen;
 
     //gambler stats
     [HideInInspector]
@@ -52,7 +50,7 @@ public class gamblerInterface : MonoBehaviour
         anger += angerAcceleration;
         if (anger >= angerLimit)
         {
-            SceneManager.LoadScene(loseScreen);
+            SceneManager.LoadScene(gameManager.Instance.loseScreen);
         }
     }
 

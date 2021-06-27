@@ -96,13 +96,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d50b05e26df0eb44b3b753c4f604499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseScreen: 
   anger: 0
   die: {fileID: 2346134619527588961, guid: 9f18d0944302c204d921def385dc0dbb, type: 3}
   angerAcceleration: 3
+  angerLimit: 10
   reactionTimeHigh: 2
   reactionTimeLow: 1
   chargeTime: 0.5
   gambler_anim: {fileID: 771233044768900277}
+  money_score: 500
+  BettingAmount: 100
 --- !u!95 &771233044768900277
 Animator:
   serializedVersion: 3
