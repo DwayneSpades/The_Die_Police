@@ -56,7 +56,7 @@ public class alerted : policeState
     public policeState doState(police popo)
     {
         //run the cool down timer to determine if check occurs
-
+        popo.runResetTimer();
         //tansition to next state
         return popo.getState();
     }

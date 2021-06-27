@@ -30,15 +30,23 @@ public class gamblerInterface : MonoBehaviour
     protected Animator gambler_anim;
 
     public int money_score;
-
+    public int BettingAmount;
 
     void Awake()
     {
         anger = 0;
     }
 
-    //animation state controlls
-    
+    public void addMoney(int amount)
+    {
+        money_score += amount;
+    }
+
+    public void loseMoney(int amount)
+    {
+        money_score -= amount;
+    }
+
     public void addAnger()
     {
         anger += angerAcceleration;

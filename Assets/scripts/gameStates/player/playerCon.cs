@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class playerCon : MonoBehaviour
 {
-    [SerializeField]
-    string currentStateName;
+    //[SerializeField]
+    //string currentStateName;
     playerState currentState;
 
     //states
@@ -38,6 +38,9 @@ public class playerCon : MonoBehaviour
 
     [HideInInspector]
     public bool hidingGame = false;
+
+   
+
     //get state
     public playerState getState() { return currentState; }
 
@@ -66,7 +69,7 @@ public class playerCon : MonoBehaviour
             hidingGame = true;
             hand_anim.Play("idle");
 
-            if (policePatrol.checking)
+            if (!policePatrol.checking)
             {
                 //angers opponenet when police aren't around
                 currentOpponent.angered();
@@ -157,15 +160,19 @@ public class playerCon : MonoBehaviour
             if (diceTotal > 6)
             {
                 Debug.Log("won Round!");
-                //player.addMoney(money_pot);
-                //opponent.loseMoney(money_pot);
+
+                player.addMoney(currentOpponent.BettingAmount);
+                currentOpponent.loseMoney(currentOpponent.BettingAmount);
+
+                Debug.Log("PLAYER mONEY:" + player.money_score);
             }
             else
             {
                 wasBelow = true;
                 Debug.Log("lost Round!");
-                //player.loseMoney(money_pot);
-                //opponent.addMoney(money_pot);
+
+                player.loseMoney(currentOpponent.BettingAmount);
+                currentOpponent.addMoney(currentOpponent.BettingAmount);
             }
 
             clearTable();
@@ -182,14 +189,17 @@ public class playerCon : MonoBehaviour
                 if (diceTotal > 6)
                 {
                     currentOpponent.swipeDice();
-                    //player.addMoney(money_pot);
-                    //opponent.loseMoney(money_pot);
+                    
+                    player.loseMoney(currentOpponent.BettingAmount);
+                    currentOpponent.addMoney(currentOpponent.BettingAmount);
+                    
                 }
                 else
                 {
                     currentOpponent.missedSwipe();
-                    //player.loseMoney(money_pot);
-                    //opponent.addMoney(money_pot);
+
+                    player.addMoney(currentOpponent.BettingAmount);
+                    currentOpponent.loseMoney(currentOpponent.BettingAmount);
                 }
                 
 
@@ -199,17 +209,14 @@ public class playerCon : MonoBehaviour
             }
             else if (tmp && playerGotDice)
             {
+                //if the oppnenet is too late to swipe
                 if (wasBelow)
                 {
                     currentOpponent.swipeDice();
-                    //player.addMoney(money_pot);
-                    //opponent.loseMoney(money_pot);
                 }
                 else
                 {
                     currentOpponent.missedSwipe();
-                    //player.loseMoney(money_pot);
-                    //opponent.addMoney(money_pot);
                 }
                 enemyGotDice = true;
             }
@@ -241,7 +248,7 @@ public class playerCon : MonoBehaviour
 
     public void resetMatch()
     {
-        Debug.Log("reseting match");
+        //Debug.Log("reseting match");
         //play dialogue here
         // 
         // advance to next level

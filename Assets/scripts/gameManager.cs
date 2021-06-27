@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
 public class gameManager : MonoBehaviour
 {
     public static gameManager Instance { get; private set; }
@@ -28,12 +29,19 @@ public class gameManager : MonoBehaviour
     //name the levelsscenes 
     public string startMenu;
     public string loseScreen;
+    public string winScreen;
 
     public List<string> levelScenes = new List<string>();
     
-    public string getNextLevel()
+    public void getNextLevel()
     {
-        return levelScenes[currentLevel];
+        //increimante level
+        currentLevel++;
+
+        if (currentLevel >= levelScenes.Count)
+            SceneManager.LoadScene(winScreen);
+
+        SceneManager.LoadScene(levelScenes[currentLevel]); 
     }
     public string goToStart() { return startMenu; }
     void Start()

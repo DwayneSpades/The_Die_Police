@@ -10,10 +10,15 @@ public class police : MonoBehaviour
 
     dormant dormantState = new dormant();
     checking checkingState = new checking();
-    resetPhase resetState = new resetPhase();
+    //resetPhase resetState = new resetPhase();
+    alerted alertedState = new alerted();
+
 
     [SerializeField]
     Animator police_anim;
+
+    [SerializeField]
+    Animator door_anim;
 
     public playerCon player;
     public float sus = 0;
@@ -23,18 +28,21 @@ public class police : MonoBehaviour
     public bool checking = false;
     public bool patrolling = false;
 
-    public float coolDownTime;
-    [SerializeField]
-    float coolDownTimer;
+    float dormantTimer;
+    public float dormantTime;
 
-    [SerializeField]
     float checkTimer;
     public float checkTime;
+
+    float gameOverResetTimer;
+    public float gameOverResetTime;
 
     // Start is called before the first frame update
     void Start()
     {
         currnetState = dormantState;
+
+        gameOverResetTimer = gameOverResetTime;
     }
 
     //set && get state
@@ -49,16 +57,16 @@ public class police : MonoBehaviour
 
     public void runCoolDownTimer()
     {
-        coolDownTimer -= 1 * Time.deltaTime;
+        dormantTimer -= 1 * Time.deltaTime;
         police_anim.Play("police_dormant");
-
-        if (coolDownTimer <= 0)
+        door_anim.Play("door_closed");
+        if (dormantTimer <= 0)
         {
             checking = false;
             checkBar();
             
             Debug.Log("RANDOM CHECK");
-            coolDownTimer = coolDownTime;
+            dormantTimer = dormantTime;
         }
 
     }
@@ -67,7 +75,7 @@ public class police : MonoBehaviour
     {
         
         checkTimer -= 1 * Time.deltaTime;
-        Debug.Log("checkTime: " +checkTimer);
+        
 
         if (checkTimer <= 0 && checking && !player.hidingGame)
         {
@@ -76,7 +84,7 @@ public class police : MonoBehaviour
 
             police_anim.Play("police_alerted");
             Debug.Log("YOU LOSE!!!!");
-            SceneManager.LoadScene("loseScreen");
+            currnetState.changeState(this,alertedState);
         }
         else if (checkTimer <= 0 && checking && player.hidingGame)
         {
@@ -91,6 +99,17 @@ public class police : MonoBehaviour
         }
 
             
+    }
+
+
+    public void runResetTimer()
+    {
+        gameOverResetTimer -= 1 * Time.deltaTime;
+        Debug.Log("checkTime: " + gameOverResetTimer);
+        if (gameOverResetTimer <= 0)
+        {
+            SceneManager.LoadScene(gameManager.Instance.loseScreen);
+        }
     }
 
     public void nothingSus()
@@ -108,6 +127,7 @@ public class police : MonoBehaviour
             checkTimer = checkTime;
             currnetState.changeState(this,checkingState);
 
+            door_anim.Play("door_open");
             police_anim.Play("police_checking");
             Debug.Log("SECURITY CHECK!!!");
         }

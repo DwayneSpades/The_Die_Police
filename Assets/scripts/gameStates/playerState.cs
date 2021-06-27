@@ -13,6 +13,41 @@ public interface playerState
 }
 
 
+public class introPhasee : playerState
+{
+    //To get to the swipe state both players need to have rolled thier dice
+    public playerState doState(playerCon player)
+    {
+        //do what the state does
+        //player.rollEnemyDice();
+
+
+        //tansition to next state
+        return player.getState();
+    }
+    //To get back to the roll state both players need to swipe
+
+
+}
+
+public class outroPhasee : playerState
+{
+    //To get to the swipe state both players need to have rolled thier dice
+    public playerState doState(playerCon player)
+    {
+        //do what the state does
+        //player.rollEnemyDice();
+
+
+        //tansition to next state
+        return player.getState();
+    }
+    //To get back to the roll state both players need to swipe
+
+
+}
+
+
 public class enemyRollPhase : playerState
 {
     //To get to the swipe state both players need to have rolled thier dice
