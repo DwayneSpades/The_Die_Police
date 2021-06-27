@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cf7394288954644b442fad60cd6766, type: 3}
+  m_Name: Steve_Intro
+  m_EditorClassIdentifier: 
+  dialogue:
+  - SLEAZY STEVE - THE BOMBADILL GANG TRICKSTER
+  - So you're the guy Dante's always talking about.
+  - Allow me to introduce myself. They call me Sleazy Steve, but you can call me
+    Steve.
+  - Tricks, pick-ups, and stick-ups, that's me.
+  - Heard you got Larry incarcerated. All by playing a couple games of scoops.
+  - You know, I fancy myself quite the scoops player.
+  - I think Dante's got more important things to do than deal with you.
+  - So why don't I drain your cash and send your sorry ass on its way home?
+  - Heh heh heh, let's play

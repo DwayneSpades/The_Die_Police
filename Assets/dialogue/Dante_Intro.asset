@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cf7394288954644b442fad60cd6766, type: 3}
+  m_Name: Dante_Intro
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Now here I was, unwinding after a long day of good business...
+  - And now... here you are.
+  - Looks like I'll be spending my evening dealing with a poor pup.
+  - You know what your problem was, friend?
+  - You didn't know how to take risks.
+  - That was your failing. That was also why you could never beat me at scoops.
+  - Now I could have my boys beat you senseless, send you home without any cash...
+  - or, maybe not send you home at all...
+  - But I need to drive the point home.
+  - You still don't know how to take risks. Not like me.
+  - You lack discipline -- punishment -- This scar on my nose has taught me enough
+    to take on the federal government.
+  - That's why I'm going to beat you through scoops, and watch you crumple.
