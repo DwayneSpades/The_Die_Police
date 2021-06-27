@@ -870,12 +870,12 @@ PrefabInstance:
         type: 3}
       propertyPath: gambler_stats
       value: 
-      objectReference: {fileID: 918048756}
+      objectReference: {fileID: 1624160369}
     - target: {fileID: 4976748716094647763, guid: 214e98bf966c2794c8a1781d48baff48,
         type: 3}
       propertyPath: gambler_stats
       value: 
-      objectReference: {fileID: 1624160369}
+      objectReference: {fileID: 918048756}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 214e98bf966c2794c8a1781d48baff48, type: 3}
 --- !u!1 &1624160368
@@ -1194,6 +1194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 771233044768900274, guid: 18d0fdb7d8e51c24f92c6948f2b154d8,
+        type: 3}
+      propertyPath: money_score
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 771233044768900276, guid: 18d0fdb7d8e51c24f92c6948f2b154d8,
         type: 3}
       propertyPath: m_RootOrder

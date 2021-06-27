@@ -9,7 +9,7 @@ public class police : MonoBehaviour
     public Sprite checkingDoor;
     public Sprite Alerted;
 
-    public playerControl player;
+    public playerCon player;
     public float sus = 0;
     public float maxSus = 0;
     public float susThreshold = 50;
@@ -32,7 +32,7 @@ public class police : MonoBehaviour
     void Update()
     {
         
-        if (checkTimer <= 0 && checking && !player.hideGame)
+        if (checkTimer <= 0 && checking && !player)
         {
             checkTimer = 0;
             checking = false;
@@ -40,7 +40,7 @@ public class police : MonoBehaviour
             Debug.Log("YOU LOSE!!!!");
             SceneManager.LoadScene("loseScreen");
         }
-        else if (checkTimer <= 0 && checking && player.hideGame)
+        else if (checkTimer <= 0 && checking && player.hidingGame)
         {
             //sus check passed. reset sus stat
             checkTimer = 0;
