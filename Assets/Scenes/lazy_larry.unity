@@ -226,7 +226,6 @@ MonoBehaviour:
   currentOpponent: {fileID: 976142043}
   player: {fileID: 1714873139}
   hand_anim: {fileID: 377571850}
-  dicePower: 0
   cup: {fileID: 1354570022}
   hidingGame: 0
 --- !u!95 &377571850

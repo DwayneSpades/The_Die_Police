@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8486361209545134885
+--- !u!1 &7723938531941021760
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8486361209545134886}
-  - component: {fileID: 8486361209545134887}
-  - component: {fileID: 8486361209545134884}
-  - component: {fileID: 8486361209545134889}
+  - component: {fileID: 7723938531941021767}
+  - component: {fileID: 7723938531941021766}
+  - component: {fileID: 7723938531941021761}
+  - component: {fileID: 7723938531941021764}
   m_Layer: 0
-  m_Name: police
+  m_Name: steve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8486361209545134886
+--- !u!4 &7723938531941021767
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8486361209545134885}
+  m_GameObject: {fileID: 7723938531941021760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.804, y: 0.124, z: -4.2559705}
-  m_LocalScale: {x: 6.503026, y: 6.503026, z: 6.503026}
+  m_LocalPosition: {x: 1.41, y: -0.51, z: -4.2559705}
+  m_LocalScale: {x: 4.0291657, y: 4.0291657, z: 4.0291657}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8486361209545134887
+--- !u!212 &7723938531941021766
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8486361209545134885}
+  m_GameObject: {fileID: 7723938531941021760}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,58 +71,57 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 2608576669272263717, guid: 04961ef8e0405884ba156dd902e75982,
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 5865381672725876483, guid: fc789d7add2f1d945a61483ebb79a8fe,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.38, y: 0.59}
+  m_Size: {x: 1.44, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8486361209545134884
+--- !u!95 &7723938531941021761
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8486361209545134885}
+  m_GameObject: {fileID: 7723938531941021760}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09c58c1722b97c043adf151b64719fef, type: 2}
+  m_Controller: {fileID: 9100000, guid: 73ef09e9307a32948bedf6b437190d54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8486361209545134889
+--- !u!114 &7723938531941021764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8486361209545134885}
+  m_GameObject: {fileID: 7723938531941021760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9471495f57af3e648ba6b9b8978c08d3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  police_anim: {fileID: 8486361209545134884}
-  door_anim: {fileID: 0}
-  player: {fileID: 0}
-  sus: -20
-  maxSus: 100
-  susThreshold: 50
-  checking: 0
-  patrolling: 0
-  dormantTime: 5
-  checkTime: 3
-  gameOverResetTime: 0
+  m_Script: {fileID: 11500000, guid: a8fda115034aa5c48bdd8e7eca86290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anger: 0
+  die: {fileID: 2346134619527588961, guid: 9f18d0944302c204d921def385dc0dbb, type: 3}
+  angerAcceleration: 2
+  angerLimit: 10
+  reactionTimeHigh: 2
+  reactionTimeLow: 0.5
+  chargeTime: 0.5
+  gambler_anim: {fileID: 7723938531941021761}
+  money_score: 1000
+  BettingAmount: 200
