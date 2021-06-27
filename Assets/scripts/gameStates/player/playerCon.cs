@@ -20,6 +20,8 @@ public class playerCon : MonoBehaviour
 
     //current opponent
     public gamblerInterface currentOpponent;
+    //the player's stats
+    public gamblerInterface player;
 
     //assets on player
     public Animator hand_anim;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class gamblerInterface : MonoBehaviour
 {
 
+    
     //gambler stats
     [SerializeField]
     protected int anger = 0;
@@ -20,8 +21,13 @@ public class gamblerInterface : MonoBehaviour
     public float chargeTime;
 
     protected bool chargingRoll = false;
+
     [SerializeField]
     protected Animator gambler_anim;
+
+    public int money_score;
+
+
     void Awake()
     {
         anger = 0;

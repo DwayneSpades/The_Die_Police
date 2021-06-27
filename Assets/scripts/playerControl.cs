@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class playerControl : MonoBehaviour
 {
+    //THIS CLASS IS GONNA BE DELETED SOON-------------------------------------------------------
+    // *
+    // *
+    // *
+    // YUP
+    
 
     public Sprite hand_throwDice;
     public Sprite hand_holdDice;

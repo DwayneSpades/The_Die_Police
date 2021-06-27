@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class moneyDisplay : MonoBehaviour
 {
-    public gambler gambler_stats;
+    public gamblerInterface gambler_stats;
     public Text textDisplay;
+    
 
-    // Start is called before the first frame update
+    //Gonna need a way to connect the current opponet to the UI
+    
     void Start()
     {
         textDisplay.text = "money: " + gambler_stats.money_score;
