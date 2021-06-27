@@ -116,13 +116,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   police_anim: {fileID: 8486361209545134884}
+  door_anim: {fileID: 0}
   player: {fileID: 0}
-  sus: 20
+  sus: -20
   maxSus: 100
   susThreshold: 50
   checking: 0
   patrolling: 0
-  coolDownTime: 3
-  coolDownTimer: 0
-  checkTimer: 0
+  dormantTime: 5
   checkTime: 3
+  gameOverResetTime: 0
