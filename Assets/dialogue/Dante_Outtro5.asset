@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cf7394288954644b442fad60cd6766, type: 3}
-  m_Name: Dante_Outtro4
+  m_Name: Dante_Outtro5
   m_EditorClassIdentifier: 
   dialogue:
-  - Don't move Dante! We know your game, and we have you surrounded!
-  - Book him, boys!
+  - ...
+  - You absolute child.
