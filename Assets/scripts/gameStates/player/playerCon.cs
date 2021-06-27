@@ -27,10 +27,12 @@ public class playerCon : MonoBehaviour
     public gamblerInterface player;
 
     //assets on player
+    // [hide]
+    
     public Animator hand_anim;
 
     //player status
-    [SerializeField]
+    //[SerializeField]
     float dicePower;
 
     //cover the game board

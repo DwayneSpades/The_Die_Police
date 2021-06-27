@@ -25,7 +25,9 @@ public class police : MonoBehaviour
     public float maxSus = 0;
     public float susThreshold = 50;
 
+    [HideInInspector]
     public bool checking = false;
+    [HideInInspector]
     public bool patrolling = false;
 
     float dormantTimer;
@@ -35,14 +37,14 @@ public class police : MonoBehaviour
     public float checkTime;
 
     float gameOverResetTimer;
-    public float gameOverResetTime;
+    public float gameResetTime;
 
     // Start is called before the first frame update
     void Start()
     {
         currnetState = dormantState;
 
-        gameOverResetTimer = gameOverResetTime;
+        gameOverResetTimer = gameResetTime;
     }
 
     //set && get state
