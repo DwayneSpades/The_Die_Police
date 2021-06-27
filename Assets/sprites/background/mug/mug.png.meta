@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 04961ef8e0405884ba156dd902e75982
+guid: a07b8693521c0cc4c8596e799a196235
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5626149497181746903
-    second: policeman_0
+      213: 4930440604519549133
+    second: mug_0
   - first:
-      213: 2608576669272263717
-    second: policeman_1
-  - first:
-      213: 6590323338817688825
-    second: policeman_2
+      213: -861902345521403043
+    second: mug_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -72,7 +69,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -84,7 +81,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -96,7 +93,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -108,7 +105,7 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -120,64 +117,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: policeman_0
+      name: mug_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 22
-        width: 78
-        height: 64
-      alignment: 9
-      pivot: {x: 0.26, y: 0.5}
+        x: 2
+        y: 2
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d6b2c8b829141e40800000000000000
-      internalID: 5626149497181746903
+      spriteID: dc8cc827b917c6440800000000000000
+      internalID: 4930440604519549133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: policeman_1
+      name: mug_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 27
-        width: 38
-        height: 59
+        x: 35
+        y: 1
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52c485de8a6833420800000000000000
-      internalID: 2608576669272263717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: policeman_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 6
-        width: 47
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f4d13dd828857b50800000000000000
-      internalID: 6590323338817688825
+      spriteID: d5bee102268e904f0800000000000000
+      internalID: -861902345521403043
       vertices: []
       indices: 
       edges: []

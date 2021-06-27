@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: larry_throw_hold
+  m_Name: door_open
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1445165141942103707, guid: 069cdbc470ca6cd4782c1c9b1e488f3f,
+      value: {fileID: 6623719234781301212, guid: b5c787888b3d863468e090b42fa1ede8,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,7 +41,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1445165141942103707, guid: 069cdbc470ca6cd4782c1c9b1e488f3f, type: 3}
+    - {fileID: 6623719234781301212, guid: b5c787888b3d863468e090b42fa1ede8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

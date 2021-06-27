@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: b5c787888b3d863468e090b42fa1ede8
+guid: 04961ef8e0405884ba156dd902e75982
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7341407202210888751
-    second: door_0
+      213: 5626149497181746903
+    second: policeman_0
   - first:
-      213: 6623719234781301212
-    second: door_1
+      213: 2608576669272263717
+    second: policeman_1
+  - first:
+      213: 6590323338817688825
+    second: policeman_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +72,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -81,7 +84,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -93,7 +96,7 @@ TextureImporter:
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -105,7 +108,7 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -117,43 +120,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_0
+      name: policeman_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 10
-        width: 47
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 19
+        y: 6
+        width: 87
+        height: 80
+      alignment: 9
+      pivot: {x: 0.22553648, y: 0.62849987}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d3c9b8cb051e1a90800000000000000
-      internalID: -7341407202210888751
+      spriteID: 7d6b2c8b829141e40800000000000000
+      internalID: 5626149497181746903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_1
+      name: policeman_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 1
-        width: 75
-        height: 73
+        x: 128
+        y: 27
+        width: 38
+        height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd9cf01dc8d2ceb50800000000000000
-      internalID: 6623719234781301212
+      spriteID: 52c485de8a6833420800000000000000
+      internalID: 2608576669272263717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: policeman_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 6
+        width: 47
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4d13dd828857b50800000000000000
+      internalID: 6590323338817688825
       vertices: []
       indices: 
       edges: []

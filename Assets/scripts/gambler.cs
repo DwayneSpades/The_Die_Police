@@ -65,6 +65,13 @@ public class gambler : MonoBehaviour
         swipingDice = true;
     }
 
+    public void lostRound()
+    {
+        //gambler_anim.Play("larry_swipe");
+        swipeTimer = swipeTime;
+        swipingDice = true;
+    }
+
     public void addMoney(int amount)
     {
         money_score = money_score + amount;

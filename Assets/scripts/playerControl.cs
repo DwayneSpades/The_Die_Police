@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class playerControl : MonoBehaviour
 {
 
-    public gameManager manager;
     public Sprite hand_throwDice;
     public Sprite hand_holdDice;
 
@@ -109,6 +108,7 @@ public class playerControl : MonoBehaviour
                         player.loseMoney(money_pot);
                         opponent.addMoney(money_pot);
                     }
+                    
                 }
 
                 //start enemy swipe countdown
@@ -136,6 +136,7 @@ public class playerControl : MonoBehaviour
                 }
                 if (!diceDown)
                 {
+                    
                     gameManager.Instance.resetDiceRoll();
 
                 }
@@ -165,16 +166,16 @@ public class playerControl : MonoBehaviour
 
                     throwingDice = false;
 
-                    Debug.Log("DICE THROWN! Power: " + dicePower);
-
-                    //get dice total form the dice objects
-                    //diceTotal = Random.Range(2, 13);
-                    // 
+                   
                     Vector2 tmp_v = new Vector2(3, 0);
+
+
                     Instantiate(die,tmp_v, Quaternion.identity);
-                    Debug.Log("DICE NUMBER_1: " + diceTotal);
-                    diceTotal = manager.giveRollTotal();
-                    Debug.Log("DICE NUMBER_2: " + diceTotal);
+
+
+                    Debug.Log("DICE NUMBER_before player rolling: " + diceTotal);
+                    diceTotal = gameManager.Instance.giveRollTotal();
+                    Debug.Log("DICE NUMBER_after player rolling: " + diceTotal);
                     
 
                     addSus(dicePower);
