@@ -30,6 +30,11 @@ public class dante : gamblerInterface
 
     }
 
+    public override void playThemeSong()
+    {
+        soundManager.Instance.playDanteTheme();
+    }
+
     public override bool chargeRoll()
     {
         if (!chargingRoll)

@@ -22,13 +22,18 @@ public class lazy_larry : gamblerInterface
     // Start is called before the first frame update
     void Start()
     {
-
+        soundManager.Instance.playMainTheme();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public override void playThemeSong()
+    {
+        
     }
 
     public override bool chargeRoll()
@@ -87,6 +92,7 @@ public class lazy_larry : gamblerInterface
 
     public override void swipeDice()
     {
+        
         gambler_anim.Play("larry_swipedDice");
     }
 

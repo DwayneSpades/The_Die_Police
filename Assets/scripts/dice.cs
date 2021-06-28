@@ -9,12 +9,12 @@ public class dice : MonoBehaviour
     public List<Sprite> dieSprites;
     protected Animator animator;
     public float revealTime = 0.5f;
-
+    bool hasCollided = false;
     // Start is called before the first frame update
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
-
+        soundManager.Instance.playThrowDice();
         dice_number = Random.Range(0, 6) + 1;
         Debug.Log("dice rolled: " + dice_number);
 
@@ -40,4 +40,11 @@ public class dice : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+
+        if(!hasCollided)
+            soundManager.Instance.playDiceImpact();
+        hasCollided = true;
+    }
 }

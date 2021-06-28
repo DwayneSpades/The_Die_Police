@@ -143,7 +143,7 @@ public class playerCon : MonoBehaviour
     public void chargeDice()
     {
         if (gameManager.IsWaitingForHide()) return;
-
+        print("ROLL PHASE");
         if (Input.GetKeyDown(KeyCode.X))
         {
             charging = true;
@@ -160,8 +160,9 @@ public class playerCon : MonoBehaviour
 
         //throw dice onto the table
         //notify the gameMnaager that the player rolled
-        if (charging && !Input.GetKey(KeyCode.X))
+        if (Input.GetKeyUp(KeyCode.X))
         {
+            
             hand_anim.Play("throw_dice");
             currentState = enemyRoleState;
             roundTimer = roundTime;
@@ -183,9 +184,9 @@ public class playerCon : MonoBehaviour
 
     public void swipeDice()
     {
-        print("SWIPE");
+        
         if (gameManager.IsWaitingForHide()) return;
-
+        print("SWIPE Phase");
         //play swip ainmation
         bool successfulSwipe = gameManager.Instance.CheckSwipe();
 
@@ -197,6 +198,7 @@ public class playerCon : MonoBehaviour
             {
                 roundOver = false;
                 roundTimer = roundTime;
+                print("ROUND OVER");
                 currentState = resetState;
             }
         }
@@ -204,6 +206,7 @@ public class playerCon : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
+                soundManager.Instance.playHandSwipe();
                 hand_anim.Play("swipe_dice");
                 playerGotDice = true;
 
@@ -251,6 +254,7 @@ public class playerCon : MonoBehaviour
                 {
                     if (successfulSwipe)
                     {
+                        soundManager.Instance.playHandSwipe();
                         gameManager.GetCurrentOpponent().swipeDice();
 
                         if (!gameManager.IsPractice())
@@ -264,6 +268,7 @@ public class playerCon : MonoBehaviour
                     }
                     else
                     {
+                        soundManager.Instance.playHandSwipe();
                         gameManager.GetCurrentOpponent().missedSwipe();
 
                         if (!gameManager.IsPractice())
@@ -286,11 +291,13 @@ public class playerCon : MonoBehaviour
                     //if the oppnenet is too late to swipe
                     if (wasBelow)
                     {
+                        soundManager.Instance.playHandSwipe();
                         gameManager.GetCurrentOpponent().swipeDice();
                         DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
                     }
                     else
                     {
+                        soundManager.Instance.playHandSwipe();
                         gameManager.GetCurrentOpponent().missedSwipe();
                         DialogueScript.RunDialogue(gameManager.GetCurrentLevel().outscoopedDialogue);
                     }
@@ -330,7 +337,7 @@ public class playerCon : MonoBehaviour
         // 
         //clearTable();
 
-
+        Debug.Log("RESTARTING MATCH");
         if (player.money_score <= 0)
         {
             gameManager.OnLose();

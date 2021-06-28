@@ -31,14 +31,15 @@ public class soundManager : MonoBehaviour
     public AudioSource policeCheck;
     public AudioSource policeAlerted;
 
-    public List<AudioSource> diceImpact;
-    public List<AudioSource> handSwipe;
+    public AudioSource throwDice;
+    public AudioSource diceImpact;
+    public AudioSource handSwipe;
 
     private AudioSource currentTrack;
     // Start is called before the first frame update
     void Start()
     {
-
+        
         //DontDestroyOnLoad(currentTrack);
     }
 
@@ -57,14 +58,19 @@ public class soundManager : MonoBehaviour
     {
         switchTrack(MainTheme);
     }
-    public void playResultsTheme()
+    public void playSteveTheme()
     {
-        
+        switchTrack(steve_Theme);
     }
-    public void playPrototypeTheme()
+    public void playSophiaTheme()
     {
-        
+        switchTrack(sophia_Theme);
     }
+    public void playDanteTheme()
+    {
+        switchTrack(dante_Theme);
+    }
+
 
     private GameObject soundObject = null;
     private AudioSource audioSource = null;
@@ -82,7 +88,7 @@ public class soundManager : MonoBehaviour
 
         //source.gameObject.SetActive(true);// = true;
         //source.PlayOneShot(source.clip);
-        // Destroy(sound.gameObject, 1.0f);
+        //Destroy(sound.gameObject, 1.0f);
     }
     public AudioSource pickAsound(List<AudioSource> other)
     {
@@ -97,12 +103,19 @@ public class soundManager : MonoBehaviour
     {
         //pick sond from list
 
-        playSound(pickAsound(handSwipe), 0.5f);
+        playSound(handSwipe, 0.5f);
     }
     
-    public void playHackFullCharge()
+    public void playDiceImpact()
     {
-        
+        playSound(diceImpact, 1f);
     }
-
+    public void playPoliceAlerted()
+    {
+        playSound(policeAlerted, 0.7f);
+    }
+    public void playThrowDice()
+    {
+        playSound(throwDice, 1f);
+    }
 }

@@ -32,6 +32,11 @@ public class steve : gamblerInterface
         }
     }
 
+    public override void playThemeSong()
+    {
+        soundManager.Instance.playSteveTheme();
+    }
+
     public override bool chargeRoll()
     {
         if (!chargingRoll)

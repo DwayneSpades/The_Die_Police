@@ -45,6 +45,10 @@ public class gamblerInterface : MonoBehaviour
     {
         money_score -= amount;
     }
+    public virtual void playThemeSong()
+    {
+
+    }
 
     public void addAnger()
     {

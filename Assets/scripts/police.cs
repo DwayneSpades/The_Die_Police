@@ -87,6 +87,7 @@ public class police : MonoBehaviour
             checking = false;
 
             police_anim.Play("police_alerted");
+            soundManager.Instance.playPoliceAlerted();
             Debug.Log("YOU LOSE!!!!");
             currnetState.changeState(this,alertedState);
         }

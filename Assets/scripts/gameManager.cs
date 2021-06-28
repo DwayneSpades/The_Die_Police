@@ -64,6 +64,7 @@ public class gameManager : MonoBehaviour
         };
 
         currentLevel = startingLevel;
+        
         StartLevel();
     }
 
@@ -133,6 +134,9 @@ public class gameManager : MonoBehaviour
         currentDialogue = 0;
 
         levels[currentLevel].gambler.gameObject.SetActive(true);
+        //play level song
+        levels[currentLevel].gambler.playThemeSong();
+
         policeman.policeProfile = levels[currentLevel].policeProfile;
         gamblerMoneyDisplay.gambler = levels[currentLevel].gambler;
 
@@ -148,6 +152,7 @@ public class gameManager : MonoBehaviour
         {
             // do winscreen stuff
             levels[currentLevel].gambler.gameObject.SetActive(false);
+            gameManager.OnLose();
         }
         else
         {

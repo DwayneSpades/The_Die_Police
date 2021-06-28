@@ -32,6 +32,10 @@ public class sophia : gamblerInterface
     {
 
     }
+    public override void playThemeSong()
+    {
+        soundManager.Instance.playSophiaTheme();
+    }
 
     public override bool chargeRoll()
     {
