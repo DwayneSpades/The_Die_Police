@@ -196,6 +196,7 @@ public class playerCon : MonoBehaviour
             if (roundTimer <= 0)
             {
                 roundOver = false;
+                roundTimer = roundTime;
                 currentState = resetState;
             }
         }
