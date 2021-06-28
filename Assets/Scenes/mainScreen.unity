@@ -839,7 +839,7 @@ MonoBehaviour:
   startMenu: mainScreen
   loseScreen: loseScreen
   winScreen: 
-  startingLevel: 3
+  startingLevel: 0
 --- !u!4 &863150804
 Transform:
   m_ObjectHideFlags: 0
