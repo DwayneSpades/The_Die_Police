@@ -50,7 +50,12 @@ public class police : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currnetState.doState(this);     
+        if (!gameManager.GameRunning()) return;
+
+        if (!gameManager.IsPractice() && !DialogueScript.IsRunning())
+        {
+            currnetState.doState(this);     
+        }
     }
 
     public void runCoolDownTimer()
@@ -99,6 +104,23 @@ public class police : MonoBehaviour
             
     }
 
+    internal void Hide()
+    {
+        police_anim.Play("police_dormant");
+        door_anim.Play("door_closed");
+    }
+
+    internal void DisplayChecking()
+    {
+        door_anim.Play("door_open");
+        police_anim.Play("police_checking");
+    }
+
+    internal void DisplayAlterted()
+    {
+        door_anim.Play("door_open");
+        police_anim.Play("police_alerted");
+    }
 
     public void runResetTimer()
     {

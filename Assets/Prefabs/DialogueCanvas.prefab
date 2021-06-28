@@ -117,7 +117,7 @@ MonoBehaviour:
   dialogueText: {fileID: 5007718831268114385}
   panel: {fileID: 487219349013464754}
   continueIcon: {fileID: 1188040493132336801}
-  keycodes: 7a00000078000000200000000d000000
+  keycodes: 0d000000780000002000000020000000
   test: {fileID: 0}
 --- !u!1 &487219349013464754
 GameObject:
@@ -287,8 +287,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10.8
-  m_fontSizeBase: 10.8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
