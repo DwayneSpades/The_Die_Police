@@ -14,11 +14,15 @@ public class gameManager : MonoBehaviour
     public LevelData[] levels;
     int currentLevel;
 
+    bool practice = false;
+    bool waitingForHide = false;
+
+    public Animator fadeAnimator;
+
     private void Awake()
     {
         if (Instance == null)
         {
-
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -27,9 +31,46 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        dialogueCallback = () =>
+        {
+            if (currentLevel == 0)
+            {
+                switch (currentDialogue)
+                {
+                    case 0:
+                        // start basic practice, run police 
+                        StartCoroutine(Practice());
+                        break;
+                    case 1:
+                        // wait for player to hide with Z
+                        StartCoroutine(WaitForHide());
+                        break;
+                    case 2:
+                        // start game
+                        practice = false;
+                        break;
+                }
+
+                currentDialogue++;
+            }
+            else
+            {
+                currentDialogue++;
+                if (currentDialogue < levels[currentLevel].introDialogues.Length)
+                {
+                    DialogueScript.RunDialogue(levels[currentLevel].introDialogues[currentDialogue], dialogueCallback);
+                }
+            }
+        };
+
         currentLevel = startingLevel;
-        levels[currentLevel].gambler.gameObject.SetActive(true);
-        gamblerMoneyDisplay.gambler = levels[currentLevel].gambler;
+        StartLevel();
+    }
+
+    internal static bool GameRunning()
+    {
+        return Instance.gameRunning;
     }
 
     [HideInInspector]
@@ -50,6 +91,55 @@ public class gameManager : MonoBehaviour
     [Header("Debug")]
     public int startingLevel = 0;
 
+    int currentDialogue = 0;
+
+    bool gameRunning = true;
+
+    IEnumerator Practice()
+    {
+        practice = true;
+        float time = 0;
+        while (time < 15)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitUntil(() => { return !DialogueScript.IsRunning(); });
+
+        policeman.DisplayChecking();
+
+        DialogueScript.RunDialogue(levels[currentLevel].introDialogues[currentDialogue], dialogueCallback);
+    }
+
+    IEnumerator WaitForHide()
+    {
+        waitingForHide = true;
+
+        yield return new WaitUntil(() =>
+        {
+            return !DialogueScript.IsRunning() && playerCon.IsHiding();
+        });
+
+        waitingForHide = false;
+        practice = false;
+        policeman.Hide();
+        DialogueScript.RunDialogue(levels[currentLevel].introDialogues[currentDialogue], dialogueCallback);
+    }
+
+    Action dialogueCallback = () => { };
+
+    void StartLevel()
+    {
+        currentDialogue = 0;
+
+        levels[currentLevel].gambler.gameObject.SetActive(true);
+        policeman.policeProfile = levels[currentLevel].policeProfile;
+        gamblerMoneyDisplay.gambler = levels[currentLevel].gambler;
+
+        DialogueScript.RunDialogue(levels[currentLevel].introDialogues[currentDialogue], dialogueCallback);
+    }
+
     public void progressLevel()
     {
         //increimante level
@@ -58,21 +148,51 @@ public class gameManager : MonoBehaviour
         if (lastLevel)
         {
             // do winscreen stuff
-            print("haha u won");
             levels[currentLevel].gambler.gameObject.SetActive(false);
         }
         else
         {
             // progress level
-            levels[currentLevel].gambler.gameObject.SetActive(false);
-            currentLevel++;
-
-            levels[currentLevel].gambler.gameObject.SetActive(true);
-            policeman.policeProfile = levels[currentLevel].policeProfile;
-            gamblerMoneyDisplay.gambler = levels[currentLevel].gambler;
+            StartCoroutine(EndLevel());
         }
     }
-    
+
+    WaitUntil dialogueWait = new WaitUntil(() => { return !DialogueScript.IsRunning(); });
+
+    IEnumerator EndLevel()
+    {
+        gameRunning = false;
+        foreach(var dialogue in GetCurrentLevel().outtroDialogues)
+        {
+            DialogueScript.RunDialogue(dialogue);
+            yield return dialogueWait;
+        }
+        fadeAnimator.Play("FadeOut");
+
+        float time = 0;
+        while (time < 2.0f)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        levels[currentLevel].gambler.gameObject.SetActive(false);
+        currentLevel++;
+        levels[currentLevel].gambler.gameObject.SetActive(true);
+
+        fadeAnimator.Play("FadeIn");
+
+        time = 0;
+        while (time < 2.0f)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        gameRunning = true;
+        StartLevel();
+    }
+
     public void collectDice(dice die)
     {
         diceTotal += die.dice_number;
@@ -99,6 +219,7 @@ public class gameManager : MonoBehaviour
     public static int GetDiceCount() => Instance.diceRoll.Count;
 
     public static gamblerInterface GetCurrentOpponent() => Instance.levels[Instance.currentLevel].gambler;
+    public static LevelData GetCurrentLevel() => Instance.levels[Instance.currentLevel];
 
     internal bool CheckSwipe()
     {
@@ -110,4 +231,7 @@ public class gameManager : MonoBehaviour
 
         return result;
     }
+
+    public static bool IsPractice() => Instance.practice;
+    public static bool IsWaitingForHide() => Instance.waitingForHide;
 }

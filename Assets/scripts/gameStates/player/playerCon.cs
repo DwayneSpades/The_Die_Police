@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class playerCon : MonoBehaviour
 {
+    static playerCon inst;
+
     //[SerializeField]
     //string currentStateName;
     playerState currentState;
@@ -45,8 +48,17 @@ public class playerCon : MonoBehaviour
     //get state
     public playerState getState() { return currentState; }
 
-    void awake()
+    void Awake()
     {
+        if (inst == null)
+        {
+            inst = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         cup.active = false;
     }
 
@@ -55,13 +67,15 @@ public class playerCon : MonoBehaviour
     {
 
         //load starting state
-        currentState = enemyRoleState;
+        currentState = rollState;
         cup.active = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (DialogueScript.IsRunning()) return;
+        if (!gameManager.GameRunning()) return;
 
         //hide game at anytime
         if (Input.GetKeyDown(KeyCode.Z))
@@ -73,14 +87,21 @@ public class playerCon : MonoBehaviour
             if (!policePatrol.checking)
             {
                 //angers opponenet when police aren't around
-                gameManager.GetCurrentOpponent().angered();
-                gameManager.GetCurrentOpponent().addAnger();
+                if (!gameManager.IsPractice())
+                {
+                    gameManager.GetCurrentOpponent().angered();
+                    gameManager.GetCurrentOpponent().addAnger();
+                }
+                if (!gameManager.IsWaitingForHide())
+                {
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().hideLoseDialogue);
+                }
             }
 
             clearTable();
         }
         //reset game at anytime
-        else if (Input.GetKeyUp(KeyCode.Z))
+        else if (cup.active && !Input.GetKey(KeyCode.Z))
         {
             cup.active = false;
             hidingGame = false;
@@ -109,13 +130,23 @@ public class playerCon : MonoBehaviour
         //Vector2 tmp_v = new Vector2(3, 0);
         //Instantiate(die, tmp_v, Quaternion.identity);
         if(tmp)
-            currentState = rollState;
+            currentState = swipeState;
     }
+
+    internal static bool IsHiding()
+    {
+        return inst.cup.active;
+    }
+
+    bool charging = false;
 
     public void chargeDice()
     {
+        if (gameManager.IsWaitingForHide()) return;
+
         if (Input.GetKeyDown(KeyCode.X))
         {
+            charging = true;
             hand_anim.Play("charge_dice");
         }
             
@@ -129,10 +160,10 @@ public class playerCon : MonoBehaviour
 
         //throw dice onto the table
         //notify the gameMnaager that the player rolled
-        if (Input.GetKeyUp(KeyCode.X))
+        if (charging && !Input.GetKey(KeyCode.X))
         {
             hand_anim.Play("throw_dice");
-            currentState = swipeState;
+            currentState = enemyRoleState;
             roundTimer = roundTime;
             enemyGotDice = false;
             wasBelow = false;
@@ -141,15 +172,19 @@ public class playerCon : MonoBehaviour
             Instantiate(die, tmp_v, Quaternion.identity);
         }
     }
+
     bool playerGotDice = false;
     bool enemyGotDice = false;
     bool wasBelow = false;
 
     float roundTimer = 0;
-    float roundTime = 8;
+    float roundTime = 2;
+    bool roundOver = false;
 
     public void swipeDice()
     {
+        if (gameManager.IsWaitingForHide()) return;
+
         //play swip ainmation
         bool successfulSwipe = gameManager.Instance.CheckSwipe();
         
@@ -162,18 +197,31 @@ public class playerCon : MonoBehaviour
             {
                 Debug.Log("won Round!");
 
-                player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                if (!gameManager.IsPractice())
+                {
+                    player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                }
+
+                DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
 
                 Debug.Log("PLAYER mONEY:" + player.money_score);
+                roundOver = true;
             }
             else
             {
                 wasBelow = true;
                 Debug.Log("lost Round!");
 
-                player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                if (!gameManager.IsPractice())
+                {
+                    player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                }
+
+                DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
+
+                roundOver = true;
             }
 
             clearTable();
@@ -190,19 +238,30 @@ public class playerCon : MonoBehaviour
                 if (successfulSwipe)
                 {
                     gameManager.GetCurrentOpponent().swipeDice();
-                    
-                    player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                    gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                    
+
+                    if (!gameManager.IsPractice())
+                    {
+                        player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                        gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    }
+                    roundOver = true;
+
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
                 }
                 else
                 {
                     gameManager.GetCurrentOpponent().missedSwipe();
 
-                    player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                    gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    if (!gameManager.IsPractice())
+                    {
+                        player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                        gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    }
+                    roundOver = true;
+
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
                 }
-                
+
 
                 clearTable();
                 enemyGotDice = true;
@@ -214,28 +273,34 @@ public class playerCon : MonoBehaviour
                 if (wasBelow)
                 {
                     gameManager.GetCurrentOpponent().swipeDice();
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
                 }
                 else
                 {
                     gameManager.GetCurrentOpponent().missedSwipe();
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
                 }
                 enemyGotDice = true;
             }
             
         }
-        roundTimer -= 1 * Time.deltaTime;
-
-        if(roundTimer <= 0)
+        if (roundOver)
         {
-            currentState = resetState;
+            roundTimer -= 1 * Time.deltaTime;
+
+            if(roundTimer <= 0)
+            {
+                roundOver = false;
+                currentState = resetState;
+            }
         }
-       
+
     }
     /*
     int resetTimer = 0;
     int resetTime = 3;
     */
-     
+
     public void resetAnger()
     {
         //reset current opponents anger
@@ -273,7 +338,7 @@ public class playerCon : MonoBehaviour
 
         playerGotDice = false;
         //restart match
-        currentState = enemyRoleState;
+        currentState = rollState;
     }
 
 }
