@@ -1188,12 +1188,12 @@ PrefabInstance:
     - target: {fileID: 7208064522045358913, guid: c8520d2dd7c35d44aa91c0644276671c,
         type: 3}
       propertyPath: normalCharDelay
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7208064522045358913, guid: c8520d2dd7c35d44aa91c0644276671c,
         type: 3}
       propertyPath: fastCharDelay
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7208064522045358913, guid: c8520d2dd7c35d44aa91c0644276671c,
         type: 3}
