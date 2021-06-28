@@ -5,6 +5,8 @@ using UnityEngine;
 public class sophia : gamblerInterface
 {
 
+    public PinkDie pinkDie;
+    bool droppedPink = false;
 
     //gambler stats
     //[SerializeField]
@@ -59,7 +61,17 @@ public class sophia : gamblerInterface
         gambler_anim.Play("sophia_roll");
 
         Vector2 tmp_v = new Vector2(2, 0);
-        Instantiate(die, tmp_v, Quaternion.identity);
+        var r = Random.value;
+
+        droppedPink = r > 0.5f;
+        if (droppedPink)
+        {
+            Instantiate(pinkDie, tmp_v, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(die, tmp_v, Quaternion.identity);
+        }
     }
 
     public override bool runSwipeTimer()
@@ -67,7 +79,8 @@ public class sophia : gamblerInterface
         if (!chargingRoll)
         {
             gambler_anim.Play("sophia_charge");
-            chargeTimer = Random.Range(reactionTimeLow, reactionTimeHigh);
+            var lowReactionTime = droppedPink ? reactionTimeHigh : reactionTimeLow;
+            chargeTimer = Random.Range(lowReactionTime, reactionTimeHigh);
             chargingRoll = true;
         }
         else

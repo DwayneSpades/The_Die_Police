@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class gamblerInterface : MonoBehaviour
 {
+    protected List<DiceRule> extraDiceRules = new List<DiceRule>();
 
     //gambler stats
     [HideInInspector]
@@ -95,4 +96,15 @@ public class gamblerInterface : MonoBehaviour
 
     }
 
+    public bool EvaluateDiceRules(List<dice> dices)
+    {
+        bool result = true;
+        // look for one to be false.
+        foreach (var diceRule in extraDiceRules)
+        {
+            result &= diceRule.Evaluate(dices);
+        }
+
+        return result;
+    }
 }

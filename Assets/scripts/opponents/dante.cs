@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class dante : gamblerInterface
 {
-
-
     //gambler stats
     //[SerializeField]
     //int anger = 0;
@@ -17,6 +15,7 @@ public class dante : gamblerInterface
     void Awake()
     {
         anger = 0;
+        extraDiceRules.Add(gameManager.Instance.snakeEyesDiceRule);
     }
 
     // Start is called before the first frame update

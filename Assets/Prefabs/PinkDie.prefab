@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2346134619527588972}
   - component: {fileID: 2346134619527588975}
   - component: {fileID: 2346134619527588974}
-  - component: {fileID: 2346134619527588961}
   - component: {fileID: 4935547584775076619}
+  - component: {fileID: 2783638115744311623}
   m_Layer: 0
-  m_Name: dice
+  m_Name: PinkDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,27 +132,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2346134619527588961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2346134619527588971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd81ae04fdec4f438a9690758f52998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dice_number: 0
-  dieSprites:
-  - {fileID: -3287765887320952711, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
-  - {fileID: -8866378825118310145, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
-  - {fileID: -7464760887336577109, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
-  - {fileID: 1813239885723335896, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
-  - {fileID: 2376305099863235458, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
-  - {fileID: 39516445742236537, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
-  revealTime: 1.5
 --- !u!95 &4935547584775076619
 Animator:
   serializedVersion: 3
@@ -172,3 +151,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2783638115744311623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346134619527588971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a34a27c3badd834bab19d88bed2ed57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dice_number: 0
+  dieSprites:
+  - {fileID: -3287765887320952711, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
+  - {fileID: -8866378825118310145, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
+  - {fileID: -7464760887336577109, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
+  - {fileID: 1813239885723335896, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
+  - {fileID: 2376305099863235458, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
+  - {fileID: 39516445742236537, guid: 475dd39e806ce2f4dab22bf2b9f757fd, type: 3}
+  revealTime: 1.5
+  fake_number: 0
+  pinkSprites:
+  - {fileID: -8371404994090164024, guid: dfd2a36ab9cc57c4f86c3c099d806b8e, type: 3}
+  - {fileID: -186857277990854066, guid: dfd2a36ab9cc57c4f86c3c099d806b8e, type: 3}
+  - {fileID: 4216956035925763505, guid: dfd2a36ab9cc57c4f86c3c099d806b8e, type: 3}
+  - {fileID: 1377333997876060535, guid: dfd2a36ab9cc57c4f86c3c099d806b8e, type: 3}
+  - {fileID: -4350696679090837583, guid: dfd2a36ab9cc57c4f86c3c099d806b8e, type: 3}
+  - {fileID: -3363048573371034776, guid: dfd2a36ab9cc57c4f86c3c099d806b8e, type: 3}
+  reresolve_time: 0.5
+  flip_time: 0.5

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class steve : gamblerInterface
 {
-
-
+    float currentReaction;
+    bool playedFeint;
+    bool runningSwipe;
     //gambler stats
     //[SerializeField]
     //int anger = 0;
@@ -19,16 +20,16 @@ public class steve : gamblerInterface
         anger = 0;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-
+        if (!playedFeint && runningSwipe && gameManager.GetDiceCount() > 1 && chargeTimer < currentReaction - 1.0f)
+        {
+            if (gameManager.Instance.giveRollTotal() <= 6)
+            {
+                gambler_anim.Play("steve_feint");
+            }
+        }
     }
 
     public override bool chargeRoll()
@@ -66,8 +67,10 @@ public class steve : gamblerInterface
     {
         if (!chargingRoll)
         {
+            runningSwipe = true;
             gambler_anim.Play("steve_charge");
             chargeTimer = Random.Range(reactionTimeLow, reactionTimeHigh);
+            currentReaction = chargeTimer;
             chargingRoll = true;
         }
         else
@@ -77,7 +80,8 @@ public class steve : gamblerInterface
             {
                 chargeTimer = 0;
                 chargingRoll = false;
-
+                runningSwipe = false;
+                playedFeint = false;
                 return true;
             }
         }
