@@ -143,7 +143,7 @@ public class playerCon : MonoBehaviour
     public void chargeDice()
     {
         if (gameManager.IsWaitingForHide()) return;
-        print("ROLL PHASE");
+        
         if (Input.GetKeyDown(KeyCode.X))
         {
             charging = true;
@@ -164,6 +164,7 @@ public class playerCon : MonoBehaviour
         {
             
             hand_anim.Play("throw_dice");
+            Debug.Log("EXITING ROLL PHASE");
             currentState = enemyRoleState;
             roundTimer = roundTime;
             enemyGotDice = false;
@@ -186,7 +187,7 @@ public class playerCon : MonoBehaviour
     {
         
         if (gameManager.IsWaitingForHide()) return;
-        print("SWIPE Phase");
+        
         //play swip ainmation
         bool successfulSwipe = gameManager.Instance.CheckSwipe();
 
@@ -198,7 +199,7 @@ public class playerCon : MonoBehaviour
             {
                 roundOver = false;
                 roundTimer = roundTime;
-                print("ROUND OVER");
+                Debug.Log("Swipe Phase");
                 currentState = resetState;
             }
         }

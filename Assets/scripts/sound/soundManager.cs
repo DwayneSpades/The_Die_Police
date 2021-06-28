@@ -103,7 +103,7 @@ public class soundManager : MonoBehaviour
     {
         //pick sond from list
 
-        playSound(handSwipe, 0.5f);
+        playSound(handSwipe, 1f);
     }
     
     public void playDiceImpact()
