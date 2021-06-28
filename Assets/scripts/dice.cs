@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class dice : MonoBehaviour
 {
+    [HideInInspector]
     public int dice_number;
-    public List<Sprite> dienumber;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        dice_number = Random.Range(0, 6);
-        GetComponent<SpriteRenderer>().sprite = dienumber[dice_number];
-        
+    public List<Sprite> dieSprites;
+    protected Animator animator;
+    public float revealTime = 0.5f;
 
-        dice_number += 1;
+    // Start is called before the first frame update
+    protected virtual void Awake()
+    {
+        animator = GetComponent<Animator>();
+
+        dice_number = Random.Range(0, 6) + 1;
         Debug.Log("dice rolled: " + dice_number);
 
         gameManager.Instance.collectDice(this);
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+        if (revealTime > 0)
+        {
+            revealTime -= Time.deltaTime;
+            if (revealTime <= 0)
+            {
+                animator.enabled = false;
+                GetComponent<SpriteRenderer>().sprite = dieSprites[dice_number-1];
+            }
+        }
     }
 
     public void destroyDice()

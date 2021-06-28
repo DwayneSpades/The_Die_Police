@@ -100,12 +100,13 @@ MonoBehaviour:
   die: {fileID: 2346134619527588961, guid: 9f18d0944302c204d921def385dc0dbb, type: 3}
   angerAcceleration: 3
   angerLimit: 10
-  reactionTimeHigh: 1
-  reactionTimeLow: 0.25
+  reactionTimeHigh: 2.5
+  reactionTimeLow: 1.75
   chargeTime: 0.2
   gambler_anim: {fileID: 771233044768900277}
   money_score: 500
   BettingAmount: 100
+  pinkDie: {fileID: 2783638115744311623, guid: 8e5184b73a038a04a988519c8f47ec66, type: 3}
 --- !u!95 &771233044768900277
 Animator:
   serializedVersion: 3

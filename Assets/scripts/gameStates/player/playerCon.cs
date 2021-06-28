@@ -151,14 +151,14 @@ public class playerCon : MonoBehaviour
     public void swipeDice()
     {
         //play swip ainmation
-        int diceTotal = gameManager.Instance.giveRollTotal();
+        bool successfulSwipe = gameManager.Instance.CheckSwipe();
         
         if (Input.GetKeyDown(KeyCode.C))
         {
             hand_anim.Play("swipe_dice");
             playerGotDice = true;
 
-            if (diceTotal > 6)
+            if (successfulSwipe)
             {
                 Debug.Log("won Round!");
 
@@ -187,7 +187,7 @@ public class playerCon : MonoBehaviour
 
             if (tmp && !playerGotDice)
             {
-                if (diceTotal > 6)
+                if (successfulSwipe)
                 {
                     gameManager.GetCurrentOpponent().swipeDice();
                     

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class gameManager : MonoBehaviour
 {
     public static gameManager Instance { get; private set; }
+
+    public readonly StandardDiceRule standardDiceRule = new StandardDiceRule();
+    public readonly SnakeEyesDiceRule snakeEyesDiceRule = new SnakeEyesDiceRule();
 
     public LevelData[] levels;
     int currentLevel;
@@ -23,7 +27,7 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        currentLevel = 0;
+        currentLevel = startingLevel;
         levels[currentLevel].gambler.gameObject.SetActive(true);
         gamblerMoneyDisplay.gambler = levels[currentLevel].gambler;
     }
@@ -42,6 +46,9 @@ public class gameManager : MonoBehaviour
     public string startMenu;
     public string loseScreen;
     public string winScreen;
+
+    [Header("Debug")]
+    public int startingLevel = 0;
 
     public void progressLevel()
     {
@@ -89,5 +96,18 @@ public class gameManager : MonoBehaviour
         return Instance.diceTotal;
     }
 
+    public static int GetDiceCount() => Instance.diceRoll.Count;
+
     public static gamblerInterface GetCurrentOpponent() => Instance.levels[Instance.currentLevel].gambler;
+
+    internal bool CheckSwipe()
+    {
+        bool result = standardDiceRule.Evaluate(diceRoll);
+        if (result)
+        {
+            result = levels[currentLevel].gambler.EvaluateDiceRules(diceRoll);
+        }
+
+        return result;
+    }
 }
