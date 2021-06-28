@@ -808,8 +808,8 @@ MonoBehaviour:
       sus: -20
       maxSus: 100
       susThreshold: 50
-      dormantTime: 99999
-      checkTime: 99999
+      dormantTime: 7
+      checkTime: 3
     gambler: {fileID: 455410693}
     introDialogues:
     - {fileID: 11400000, guid: 87d0e1c50df418940a7d3a696c75c4de, type: 2}
