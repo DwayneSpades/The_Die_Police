@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 4976748715852787480}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4976748715852787484
 GameObject:
@@ -169,11 +169,11 @@ RectTransform:
   m_Father: {fileID: 4976748715529500003}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -333, y: 211}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 354.59912, y: 191.44525}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &4976748715941993558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -227,8 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644394c3174fe9d4fbad223692b3ad81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gambler_stats: {fileID: 0}
+  gambler: {fileID: 0}
   textDisplay: {fileID: 4976748715941993559}
+  prefix: Your
 --- !u!1 &4976748716094647767
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,11 +263,11 @@ RectTransform:
   m_Father: {fileID: 4976748715529500003}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361, y: 230.84}
-  m_SizeDelta: {x: 545.58856, y: 151.76477}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 545.5886, y: 151.76477}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &4976748716094647764
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -320,5 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644394c3174fe9d4fbad223692b3ad81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gambler_stats: {fileID: 0}
+  gambler: {fileID: 0}
   textDisplay: {fileID: 4976748716094647765}
+  prefix: Their
