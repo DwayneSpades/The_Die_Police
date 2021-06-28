@@ -164,7 +164,14 @@ public class gameManager : MonoBehaviour
         gameRunning = false;
         foreach(var dialogue in GetCurrentLevel().outtroDialogues)
         {
-            DialogueScript.RunDialogue(dialogue);
+            DialogueScript.RunDialogue(dialogue, () =>
+            {
+                if (dialogue.displayPolice)
+                {
+                    policeman.DisplayAlterted();
+                }
+            });
+
             yield return dialogueWait;
         }
         fadeAnimator.Play("FadeOut");
@@ -176,6 +183,7 @@ public class gameManager : MonoBehaviour
             yield return null;
         }
 
+        policeman.Hide();
         levels[currentLevel].gambler.gameObject.SetActive(false);
         currentLevel++;
         levels[currentLevel].gambler.gameObject.SetActive(true);

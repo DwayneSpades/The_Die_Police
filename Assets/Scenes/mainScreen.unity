@@ -808,8 +808,8 @@ MonoBehaviour:
       sus: -20
       maxSus: 100
       susThreshold: 50
-      dormantTime: 3
-      checkTime: 3
+      dormantTime: 99999
+      checkTime: 99999
     gambler: {fileID: 455410693}
     introDialogues:
     - {fileID: 11400000, guid: 87d0e1c50df418940a7d3a696c75c4de, type: 2}
@@ -818,6 +818,8 @@ MonoBehaviour:
     winDialogue: {fileID: 11400000, guid: 7f3a92bd98fd64e4b9f5c590ae34f14e, type: 2}
     loseDialogue: {fileID: 11400000, guid: ec8247188ccbbbb4db2247fb4855783b, type: 2}
     hideLoseDialogue: {fileID: 11400000, guid: 020d9015fdbc3b84293aa79303e5179e, type: 2}
+    outscoopedDialogue: {fileID: 11400000, guid: ec217fbc00fc2d14b9fb1712908622fa,
+      type: 2}
     outtroDialogues:
     - {fileID: 11400000, guid: 9eac6f85ba8ad724f99a320b26635f78, type: 2}
     - {fileID: 11400000, guid: 27f6f73922479e0408acfa25364c5c20, type: 2}
@@ -834,7 +836,14 @@ MonoBehaviour:
     winDialogue: {fileID: 11400000, guid: b2fc375c63854f44fa145fab24a1c8d9, type: 2}
     loseDialogue: {fileID: 11400000, guid: 5e0faaf5a5a81044dbd23bc6821866aa, type: 2}
     hideLoseDialogue: {fileID: 11400000, guid: 5b561977e2175a3409f6f0b061cf3fc6, type: 2}
-    outtroDialogues: []
+    outscoopedDialogue: {fileID: 11400000, guid: 625bd12f7e442fa499325ac55c561c0e,
+      type: 2}
+    outtroDialogues:
+    - {fileID: 11400000, guid: 32f015e7e3b021e44b221fc7ea3acb4e, type: 2}
+    - {fileID: 11400000, guid: 431a0ef20df39c040be50a959061a407, type: 2}
+    - {fileID: 11400000, guid: 5b1bae2f60874bd408ed088539b893bd, type: 2}
+    - {fileID: 11400000, guid: 4d919107619126547a98cff1d3c4f31e, type: 2}
+    - {fileID: 11400000, guid: e90fe65f587774746aed39636c14f6a0, type: 2}
   - policeProfile:
       sus: -20
       maxSus: 100
@@ -847,6 +856,8 @@ MonoBehaviour:
     winDialogue: {fileID: 11400000, guid: b2bdf5d1d211aa941bb30d2e015c7a08, type: 2}
     loseDialogue: {fileID: 11400000, guid: b292adea2d0af154796260703900ca8d, type: 2}
     hideLoseDialogue: {fileID: 11400000, guid: 73fef88526b5d5847a6bfc9511b2e336, type: 2}
+    outscoopedDialogue: {fileID: 11400000, guid: d25b97fd6e7c758469d98de3b83a9939,
+      type: 2}
     outtroDialogues:
     - {fileID: 11400000, guid: 76262f87aaadb1640881d21f9f4ff675, type: 2}
   - policeProfile:
@@ -861,13 +872,15 @@ MonoBehaviour:
     winDialogue: {fileID: 11400000, guid: 1d401ab7283395e41a4c478d76d276c7, type: 2}
     loseDialogue: {fileID: 11400000, guid: 47d59e4e91743d74badc7f13f13a8561, type: 2}
     hideLoseDialogue: {fileID: 11400000, guid: cba92c54f8706cf489e5b78129c16699, type: 2}
+    outscoopedDialogue: {fileID: 11400000, guid: cba92c54f8706cf489e5b78129c16699,
+      type: 2}
     outtroDialogues:
     - {fileID: 11400000, guid: 741ffde12701dba4988de2c71f2432d1, type: 2}
     - {fileID: 11400000, guid: 6df020ea4f6e09b46acae47d3800b9f1, type: 2}
     - {fileID: 11400000, guid: 5f9cf771c3fb02645aa4bd126ba414ec, type: 2}
     - {fileID: 11400000, guid: 5cfa2058b1ddd004b9a585cbb5d80424, type: 2}
     - {fileID: 11400000, guid: 55e6d6e931111964fa071acd57c43492, type: 2}
-  fadeAnimator: {fileID: 0}
+  fadeAnimator: {fileID: 912396620}
   diceTotal: 0
   diceRoll: []
   gamblerMoneyDisplay: {fileID: 686266541}
@@ -987,7 +1000,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &912396624
 RectTransform:

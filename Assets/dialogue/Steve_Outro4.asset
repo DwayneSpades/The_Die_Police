@@ -16,3 +16,6 @@ MonoBehaviour:
   - Police! What is going on in here?
   - Looks like you can't avoid trouble for one night, good sir.
   - We'll get this miscreant out of your hair.
+  displayPolice: 1
+  hidePolice: 0
+  gamblerSprite: {fileID: 0}

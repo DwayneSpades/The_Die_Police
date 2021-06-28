@@ -41,6 +41,7 @@ public class police : MonoBehaviour
         currnetState = dormantState;
 
         gameOverResetTimer = gameResetTime;
+        dormantTimer = policeProfile.dormantTime;
     }
 
     //set && get state

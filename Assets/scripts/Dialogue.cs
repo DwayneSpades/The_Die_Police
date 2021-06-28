@@ -9,4 +9,8 @@ public class Dialogue : ScriptableObject
     // Makes the typing area bigg
     [TextArea(3, 100)]
     public string[] dialogue;
+
+    public bool displayPolice;
+    public bool hidePolice;
+    public Sprite gamblerSprite;
 }

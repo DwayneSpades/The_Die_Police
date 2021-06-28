@@ -12,5 +12,6 @@ public class LevelData
     public Dialogue winDialogue;
     public Dialogue loseDialogue;
     public Dialogue hideLoseDialogue;
+    public Dialogue outscoopedDialogue;
     public Dialogue[] outtroDialogues;
 }
