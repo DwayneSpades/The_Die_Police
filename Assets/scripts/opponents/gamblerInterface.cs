@@ -51,7 +51,7 @@ public class gamblerInterface : MonoBehaviour
         anger += angerAcceleration;
         if (anger >= angerLimit)
         {
-            SceneManager.LoadScene(gameManager.Instance.loseScreen);
+            gameManager.OnLose();
         }
     }
 

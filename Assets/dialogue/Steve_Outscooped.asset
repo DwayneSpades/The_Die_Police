@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cf7394288954644b442fad60cd6766, type: 3}
-  m_Name: Dante_Outtro2
+  m_Name: Steve_Outscooped
   m_EditorClassIdentifier: 
   dialogue:
-  - Unpaid taxes!?
-  displayPolice: 1
+  - Oh -- when did that happen?
+  displayPolice: 0
   hidePolice: 0
   gamblerSprite: {fileID: 0}

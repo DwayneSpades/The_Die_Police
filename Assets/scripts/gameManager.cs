@@ -24,7 +24,6 @@ public class gameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -164,7 +163,14 @@ public class gameManager : MonoBehaviour
         gameRunning = false;
         foreach(var dialogue in GetCurrentLevel().outtroDialogues)
         {
-            DialogueScript.RunDialogue(dialogue);
+            DialogueScript.RunDialogue(dialogue, () =>
+            {
+                if (dialogue.displayPolice)
+                {
+                    policeman.DisplayAlterted();
+                }
+            });
+
             yield return dialogueWait;
         }
         fadeAnimator.Play("FadeOut");
@@ -176,6 +182,7 @@ public class gameManager : MonoBehaviour
             yield return null;
         }
 
+        policeman.Hide();
         levels[currentLevel].gambler.gameObject.SetActive(false);
         currentLevel++;
         levels[currentLevel].gambler.gameObject.SetActive(true);
@@ -234,4 +241,22 @@ public class gameManager : MonoBehaviour
 
     public static bool IsPractice() => Instance.practice;
     public static bool IsWaitingForHide() => Instance.waitingForHide;
+
+    IEnumerator OnLoseRoutine()
+    {
+        gameRunning = false;
+
+        fadeAnimator.Play("FadeOut");
+        float time = 0; 
+        while (time < 2)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static void OnLose() => Instance.StartCoroutine(Instance.OnLoseRoutine());
+
 }

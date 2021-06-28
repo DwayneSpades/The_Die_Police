@@ -328,7 +328,7 @@ public class playerCon : MonoBehaviour
 
         if (player.money_score <= 0)
         {
-            SceneManager.LoadScene(gameManager.Instance.loseScreen);
+            gameManager.OnLose();
         }
         else if (gameManager.GetCurrentOpponent().money_score <= 0)
         {

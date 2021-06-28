@@ -17,3 +17,6 @@ MonoBehaviour:
   - I thought I heard someone gambling in here.
   - You weren't playing with this sap, were  you?
   - ... I see, we will escort this troublemaker out of here.
+  displayPolice: 1
+  hidePolice: 0
+  gamblerSprite: {fileID: 0}

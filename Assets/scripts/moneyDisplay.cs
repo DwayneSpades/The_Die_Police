@@ -6,14 +6,14 @@ public class moneyDisplay : MonoBehaviour
 {
     public gamblerInterface gambler;
     public Text textDisplay;
-    
 
+    public string prefix;
     // Update is called once per frame
     void Update()
     {
         if (gambler)
         {
-            textDisplay.text = "money: " + gambler.money_score;
+            textDisplay.text = prefix + " money: " + gambler.money_score;
         }
     }
 }

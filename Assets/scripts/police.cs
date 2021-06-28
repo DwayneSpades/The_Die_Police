@@ -41,6 +41,7 @@ public class police : MonoBehaviour
         currnetState = dormantState;
 
         gameOverResetTimer = gameResetTime;
+        dormantTimer = policeProfile.dormantTime;
     }
 
     //set && get state
@@ -128,13 +129,12 @@ public class police : MonoBehaviour
         Debug.Log("checkTime: " + gameOverResetTimer);
         if (gameOverResetTimer <= 0)
         {
-            SceneManager.LoadScene(gameManager.Instance.loseScreen);
+            gameManager.OnLose();
         }
     }
 
     public void nothingSus()
     {
-
         Debug.Log("hhmmst");
     }
 
