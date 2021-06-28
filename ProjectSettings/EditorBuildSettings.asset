@@ -6,20 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/mainScreen.unity
+    guid: d7e7fa7dabef9704ca9810f772988441
+  - enabled: 1
     path: Assets/Scenes/loseScreen.unity
     guid: 4f0f01379eae6e14fbc9983e98c95778
-  - enabled: 1
-    path: Assets/Scenes/lazy_larry.unity
-    guid: 2c204cb95ec1c7e4d802f51bb333901f
-  - enabled: 1
-    path: Assets/Scenes/sophia.unity
-    guid: ca08427ff7362374a87267ec7e0bc906
-  - enabled: 1
-    path: Assets/Scenes/steve.unity
-    guid: 248780f08837ede49ba065f2d0703d23
-  - enabled: 1
-    path: Assets/Scenes/dante.unity
-    guid: c161984697bb65e46a12d98f3e2d39c1
   - enabled: 1
     path: Assets/Scenes/winScreen.unity
     guid: c1f6ee61e2edba848bc591461e1fd536
