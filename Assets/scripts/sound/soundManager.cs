@@ -10,7 +10,6 @@ public class soundManager : MonoBehaviour
     {
         if (Instance == null)
         {
-
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }

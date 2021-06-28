@@ -24,7 +24,6 @@ public class gameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -242,4 +241,22 @@ public class gameManager : MonoBehaviour
 
     public static bool IsPractice() => Instance.practice;
     public static bool IsWaitingForHide() => Instance.waitingForHide;
+
+    IEnumerator OnLoseRoutine()
+    {
+        gameRunning = false;
+
+        fadeAnimator.Play("FadeOut");
+        float time = 0; 
+        while (time < 2)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static void OnLose() => Instance.StartCoroutine(Instance.OnLoseRoutine());
+
 }

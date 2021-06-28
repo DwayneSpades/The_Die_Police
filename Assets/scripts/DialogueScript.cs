@@ -44,6 +44,7 @@ public class DialogueScript : MonoBehaviour
         // singleton pattern
         if (inst == null) {
             inst = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
