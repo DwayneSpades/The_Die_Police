@@ -89,8 +89,8 @@ public class playerCon : MonoBehaviour
                 //angers opponenet when police aren't around
                 if (!gameManager.IsPractice())
                 {
-                    gameManager.GetCurrentOpponent().angered();
-                    gameManager.GetCurrentOpponent().addAnger();
+                    player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
                 }
                 if (!gameManager.IsWaitingForHide())
                 {
@@ -183,115 +183,119 @@ public class playerCon : MonoBehaviour
 
     public void swipeDice()
     {
+        print("SWIPE");
         if (gameManager.IsWaitingForHide()) return;
 
         //play swip ainmation
         bool successfulSwipe = gameManager.Instance.CheckSwipe();
-        
-        if (Input.GetKeyDown(KeyCode.C))
+
+        if (roundOver)
         {
-            hand_anim.Play("swipe_dice");
-            playerGotDice = true;
+            roundTimer -= 1 * Time.deltaTime;
 
-            if (successfulSwipe)
+            if (roundTimer <= 0)
             {
-                Debug.Log("won Round!");
-
-                if (!gameManager.IsPractice())
-                {
-                    player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                    gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                }
-
-                DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
-
-                Debug.Log("PLAYER mONEY:" + player.money_score);
-                roundOver = true;
+                roundOver = false;
+                currentState = resetState;
             }
-            else
-            {
-                wasBelow = true;
-                Debug.Log("lost Round!");
-
-                if (!gameManager.IsPractice())
-                {
-                    player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                    gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                }
-
-                DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
-
-                roundOver = true;
-            }
-
-            clearTable();
         }
-
-        
-        if (!enemyGotDice)
+        else
         {
-            //run enemy swipe timer
-            bool tmp = gameManager.GetCurrentOpponent().runSwipeTimer();
-
-            if (tmp && !playerGotDice)
+            if (Input.GetKeyDown(KeyCode.C))
             {
+                hand_anim.Play("swipe_dice");
+                playerGotDice = true;
+
                 if (successfulSwipe)
                 {
-                    gameManager.GetCurrentOpponent().swipeDice();
-
-                    if (!gameManager.IsPractice())
-                    {
-                        player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                        gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
-                    }
-                    roundOver = true;
-
-                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
-                }
-                else
-                {
-                    gameManager.GetCurrentOpponent().missedSwipe();
+                    Debug.Log("won Round!");
 
                     if (!gameManager.IsPractice())
                     {
                         player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
                         gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
                     }
+
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().outscoopedDialogue);
+
+                    Debug.Log("PLAYER mONEY:" + player.money_score);
                     roundOver = true;
-
-                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
-                }
-
-
-                clearTable();
-                enemyGotDice = true;
-
-            }
-            else if (tmp && playerGotDice)
-            {
-                //if the oppnenet is too late to swipe
-                if (wasBelow)
-                {
-                    gameManager.GetCurrentOpponent().swipeDice();
-                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
                 }
                 else
                 {
-                    gameManager.GetCurrentOpponent().missedSwipe();
-                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
-                }
-                enemyGotDice = true;
-            }
-            
-        }
-        if (roundOver)
-        {
-            roundTimer -= 1 * Time.deltaTime;
+                    wasBelow = true;
+                    Debug.Log("lost Round!");
 
-            if(roundTimer <= 0)
+                    if (!gameManager.IsPractice())
+                    {
+                        player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                        gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                    }
+
+                    DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
+
+                    roundOver = true;
+                }
+
+                clearTable();
+            }
+
+        
+            if (!enemyGotDice)
             {
-                roundOver = false;
-                currentState = resetState;
+                //run enemy swipe timer
+                bool tmp = gameManager.GetCurrentOpponent().runSwipeTimer();
+
+                if (tmp && !playerGotDice)
+                {
+                    if (successfulSwipe)
+                    {
+                        gameManager.GetCurrentOpponent().swipeDice();
+
+                        if (!gameManager.IsPractice())
+                        {
+                            player.loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                            gameManager.GetCurrentOpponent().addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                        }
+                        roundOver = true;
+
+                        DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
+                    }
+                    else
+                    {
+                        gameManager.GetCurrentOpponent().missedSwipe();
+
+                        if (!gameManager.IsPractice())
+                        {
+                            player.addMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                            gameManager.GetCurrentOpponent().loseMoney(gameManager.GetCurrentOpponent().BettingAmount);
+                        }
+                        roundOver = true;
+
+                        DialogueScript.RunDialogue(gameManager.GetCurrentLevel().loseDialogue);
+                    }
+
+
+                    clearTable();
+                    enemyGotDice = true;
+
+                }
+                else if (tmp && playerGotDice)
+                {
+                    //if the oppnenet is too late to swipe
+                    if (wasBelow)
+                    {
+                        gameManager.GetCurrentOpponent().swipeDice();
+                        DialogueScript.RunDialogue(gameManager.GetCurrentLevel().winDialogue);
+                    }
+                    else
+                    {
+                        gameManager.GetCurrentOpponent().missedSwipe();
+                        DialogueScript.RunDialogue(gameManager.GetCurrentLevel().outscoopedDialogue);
+                    }
+                    enemyGotDice = true;
+                }
+            
             }
         }
 
